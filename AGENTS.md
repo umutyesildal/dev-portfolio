@@ -11,6 +11,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
   root-relative paths such as `/portrait.jpg`.
 - `examples/umut-portfolio.yaml` is a reference implementation, not active site
   content. Do not edit or copy its personal claims into another person's portfolio.
+- `PORTFOLIO_CONTENT_FILE` may select another repository-relative YAML file at
+  build time. The default remains `content/portfolio.yaml`.
 - React components under `src/` are the presentation layer. Do not edit them for a
   content-only customization unless the requested layout cannot be represented by
   the existing schema.

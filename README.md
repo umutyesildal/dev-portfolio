@@ -4,6 +4,8 @@ A minimal Next.js portfolio template that keeps personal content separate from
 React components. Create a repository from the template, edit one YAML file,
 replace the portrait, and deploy it as your own site.
 
+**Live demo:** [dev-portfolio-delta-drab.vercel.app](https://dev-portfolio-delta-drab.vercel.app)
+
 - `/` is a focused landing page with an introduction and social links.
 - `/portfolio` contains experience, education, projects, skills, and contact details.
 - `content/portfolio.yaml` is the single source of truth for visible portfolio content.
@@ -80,19 +82,18 @@ through `src/components/content-icon.tsx`.
 
 The active YAML and portrait are intentionally generic placeholders. A complete
 real-world content example is available in `examples/umut-portfolio.yaml`, with its
-matching portrait beside it. To preview that example locally, copy both files into
-their active locations:
+matching portrait under `public/examples/`. Preview it without replacing the
+default template content:
 
 ```bash
-cp examples/umut-portfolio.yaml content/portfolio.yaml
-cp examples/umut-portrait.jpg public/umut-portrait.jpg
+PORTFOLIO_CONTENT_FILE=examples/umut-portfolio.yaml pnpm dev
 ```
 
 ## Project structure
 
 ```text
 content/portfolio.yaml          Personal content
-examples/                       Complete example portfolio and portrait
+examples/                       Complete example portfolio content
 public/                         Images and downloadable assets
 src/data/schema.ts              Zod content schema
 src/data/portfolio.ts           YAML loader and validation
@@ -121,6 +122,21 @@ template.
 
 The included GitHub Actions workflow repeats install, lint, and build checks on
 pull requests and pushes. Dependabot checks npm dependencies weekly.
+
+## Deploy multiple profiles
+
+The same repository can power multiple deployments. By default, the application
+uses `content/portfolio.yaml`. Set `PORTFOLIO_CONTENT_FILE` to another repository-
+relative YAML path to build a different profile.
+
+For example, create two Vercel projects from the same GitHub repository:
+
+- Template demo: leave `PORTFOLIO_CONTENT_FILE` unset.
+- Personal site: set `PORTFOLIO_CONTENT_FILE=examples/umut-portfolio.yaml` for
+  Production, Preview, and Development.
+
+Each project can use its own domain while sharing the components, dependencies,
+CI workflow, and future code updates.
 
 ## Stack
 

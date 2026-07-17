@@ -5,9 +5,27 @@ import path from "node:path";
 import { parse } from "yaml";
 import { portfolioSchema, type PortfolioData } from "./schema";
 
-const contentPath = path.join(process.cwd(), "content", "portfolio.yaml");
+const defaultContentFile = "content/portfolio.yaml";
+
+function resolveContentPath() {
+  const projectRoot = process.cwd();
+  const configuredFile =
+    process.env.PORTFOLIO_CONTENT_FILE?.trim() || defaultContentFile;
+
+  if (path.isAbsolute(configuredFile) || path.extname(configuredFile) !== ".yaml") {
+    throw new Error("PORTFOLIO_CONTENT_FILE must be a relative .yaml file path");
+  }
+
+  const contentPath = path.resolve(projectRoot, configuredFile);
+  if (!contentPath.startsWith(`${projectRoot}${path.sep}`)) {
+    throw new Error("PORTFOLIO_CONTENT_FILE must stay inside the project directory");
+  }
+
+  return { configuredFile, contentPath };
+}
 
 export function getPortfolioData(): PortfolioData {
+  const { configuredFile, contentPath } = resolveContentPath();
   const source = readFileSync(contentPath, "utf8");
   const result = portfolioSchema.safeParse(parse(source));
 
@@ -16,7 +34,7 @@ export function getPortfolioData(): PortfolioData {
       .map((issue) => `- ${issue.path.join(".") || "root"}: ${issue.message}`)
       .join("\n");
 
-    throw new Error(`Invalid content/portfolio.yaml:\n${details}`);
+    throw new Error(`Invalid ${configuredFile}:\n${details}`);
   }
 
   return result.data;
