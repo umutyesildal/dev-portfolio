@@ -19,4 +19,9 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
-      - run: pnpm build
+      - name: Build default template
+        run: pnpm build
+      - name: Build example profile
+        run: pnpm build
+        env:
+          PORTFOLIO_CONTENT_FILE: examples/umut-portfolio.yaml
