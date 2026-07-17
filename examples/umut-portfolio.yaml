@@ -1,0 +1,268 @@
+site:
+  name: Umut Yunus Yesildal
+  initials: UY
+  language: en
+  locale: en_US
+  url: https://yesildal.me
+  location: Berlin, Germany
+  locationUrl: https://www.google.com/maps/place/Berlin
+  description: Software engineer building automation systems, data products, and applied AI experiments from Berlin.
+  summary: >-
+    I work across automation engineering, applied AI, and data-intensive systems.
+    Alongside building n8n infrastructure and internal workflows at Trade Republic,
+    I am completing an M.Sc. focused on multilingual factual knowledge transfer in
+    language models.
+  avatar: /umut-portrait.jpg
+
+navigation:
+  - label: Home
+    href: /
+    icon: home
+  - label: Portfolio
+    href: /portfolio
+    icon: portfolio
+
+home:
+  eyebrow: Software Engineer · Automation · Data & AI
+  headline: I build automation systems, data products, and applied AI experiments.
+  subheadline: Berlin-based, combining production engineering with current research in multilingual language models.
+  featuredSocials: [GitHub, X, Email]
+  portfolioCta:
+    label: Open Portfolio
+    href: /portfolio
+
+notFound:
+  code: "404"
+  title: Page Not Found
+  description: The page you're looking for doesn't exist or may have been moved.
+  cta:
+    label: Go to Home
+    href: /
+
+portfolio:
+  metadataTitle: Portfolio
+  metadataDescription: Selected experience, projects, and skills from Umut Yunus Yesildal.
+  label: Portfolio
+  headline: Applied AI, data systems, and automation.
+  intro: Berlin-based software engineer combining production automation, data engineering, and current research in multilingual language models.
+  companyLine: Trade Republic · Project A / A11 · Metavest
+  headerSocials: [GitHub, X]
+  experience:
+    title: Selected Experience
+    description: Roles that shaped how I build across product, ops, and engineering.
+  education:
+    title: Education
+    description: A mix of current research-minded study and practical shipping.
+  projects:
+    label: Selected Projects
+    title: Recent engineering work.
+    description: Applied AI, data engineering, research, and automation projects from 2025–2026.
+  earlierProjects:
+    title: Earlier work
+    description: Selected mobile and frontend projects from my early engineering years.
+  skills:
+    title: Skills & Tools
+    description: The stack I reach for most often.
+  contact:
+    title: Let's Talk
+    description: If you want to talk about product tooling, automation, AI workflows, or a frontend-heavy build, the best starting point is email.
+    socials: [GitHub, X]
+
+contact:
+  email: hello@yesildal.me
+  socials:
+    - name: GitHub
+      url: https://github.com/umutyesildal
+      icon: github
+      navbar: true
+    - name: X
+      url: https://twitter.com/umutyyesildal
+      icon: x
+      navbar: true
+    - name: Website
+      url: https://yesildal.me
+      icon: globe
+      navbar: false
+    - name: Email
+      url: mailto:hello@yesildal.me
+      icon: email
+      navbar: false
+
+skills:
+  - name: React
+    icon: react
+  - name: Next.js
+    icon: nextjs
+  - name: TypeScript
+    icon: typescript
+  - name: Node.js
+    icon: nodejs
+  - name: Python
+    icon: python
+  - name: n8n
+  - name: Automation
+  - name: AI Workflows
+  - name: Data Engineering
+  - name: NLP
+  - name: PostgreSQL
+  - name: Docker
+  - name: Notion API
+  - name: PM4Py
+
+work:
+  - company: Trade Republic
+    url: https://www.traderepublic.com/
+    location: Berlin
+    title: Product Ops Working Student
+    logo: ""
+    start: Jan 2026
+    end: Present
+    description: Building n8n infrastructure for internal operations, shipping workflows for cross-team communication, and debugging automation flows used by multiple teams.
+  - company: Project A / A11
+    url: https://www.project-a.com/
+    location: Berlin
+    title: Talent & RecOps Working Student
+    logo: ""
+    start: Mar 2024
+    end: Sep 2025
+    description: Owned automations, data flows, and AI tooling inside a 20-person recruiting team. Built workflows with n8n and Make, Node.js scrapers across 100+ sites, and Notion-backed dashboards for internal KPIs.
+  - company: Metavest
+    url: https://metavest.app/
+    location: Istanbul
+    title: Software Developer
+    logo: ""
+    start: Feb 2022
+    end: Oct 2023
+    description: Worked across web, mobile, backend, and blockchain-related integrations in a fast-moving crypto startup. Shipped Next.js and React Native features, built internal scrapers, and supported backend integrations with PostgreSQL and Node.js services.
+  - company: Platri IT GmbH
+    url: ""
+    location: Remote
+    title: Mobile App Developer
+    logo: ""
+    start: Mar 2021
+    end: Jan 2022
+    description: Developed Flutter applications from prototype to release with BLoC state management, reusable package architecture, and multiple local database strategies.
+  - company: Various Projects
+    url: ""
+    location: Istanbul
+    title: Software & Startup Projects
+    logo: ""
+    start: "2019"
+    end: "2021"
+    description: Built early-stage web and mobile products, including Crillo, a time-management concept developed through the İTÜ Çekirdek incubation program. Participated in mentor sessions, received $10,000 in program credits, and gained hands-on experience across product development, backend engineering, testing, and startup execution.
+
+education:
+  - school: Humboldt-Universität zu Berlin
+    url: https://www.hu-berlin.de/en
+    degree: M.Sc. Computer Science
+    start: "2024"
+    end: Expected Oct 2026
+  - school: Turkish-German University
+    url: https://www.tau.edu.tr/en
+    degree: B.Sc. Computer Science
+    start: "2017"
+    end: "2022"
+
+projects:
+  - title: Multilingual Factual Knowledge Transfer
+    url: ""
+    date: M.Sc. Thesis · 2026
+    description: >-
+      Designed a controlled synthetic-fact framework to measure **English-to-Turkish factual transfer**
+      separately from reaffirmation and relearning. Built bilingual pre/post probing, adaptation branches,
+      and controls for frequency, entity distribution, contamination, and prompt paraphrases.
+    technologies: [Python, NLP, LLM Evaluation, Synthetic Data]
+    links: []
+    image: ""
+    video: ""
+  - title: Daily Berlin Jobs
+    url: https://github.com/umutyesildal/daily-berlin-jobs
+    date: Open Source Product · 2026
+    description: >-
+      Built an open-source, consumer-facing job board and ingestion pipeline for Berlin engineering roles.
+      The system collects jobs from company sources, classifies them through a versioned Python taxonomy,
+      publishes normalized data, and serves a minimal Next.js search experience.
+    technologies: [Python, Next.js, PostgreSQL, Data Pipelines]
+    links:
+      - label: GitHub
+        url: https://github.com/umutyesildal/daily-berlin-jobs
+        icon: github
+    image: ""
+    video: ""
+  - title: yesildal.me Portfolio
+    url: https://github.com/umutyesildal/yesildal.me
+    date: Open Source · Ongoing
+    description: >-
+      Designed and built my personal portfolio as a minimal, responsive showcase for engineering work and
+      experience. The project uses reusable content sections, theme support, subtle motion, and separate
+      landing and portfolio routes.
+    technologies: [Next.js, React, TypeScript, Tailwind CSS]
+    links:
+      - label: GitHub
+        url: https://github.com/umutyesildal/yesildal.me
+        icon: github
+    image: ""
+    video: ""
+  - title: Spatial-Aware Process Mining
+    url: ""
+    date: 2025–2026
+    description: >-
+      Designed a compact **Space XES extension** for coordinates, reference systems, floor levels, and
+      discrete locations. Implemented PM4Py preprocessing and validation utilities, then tested them across
+      Citibike, truck-shipment, and synthetic factory logs.
+    technologies: [Python, PM4Py, XES, Testing]
+    links: []
+    image: ""
+    video: ""
+  - title: MIMIC-IV Clinical Data Pipeline
+    url: ""
+    date: "2025"
+    description: >-
+      Built a Dockerized PostgreSQL environment and modular Python QueryBuilder for clinical parameter
+      extraction. Implemented **Bronze-Silver-Gold ETL layers**, unit standardization, plausibility checks,
+      indexes, and a Gold-layer SOFA-score pipeline.
+    technologies: [Python, PostgreSQL, Docker, ETL]
+    links: []
+    image: ""
+    video: ""
+  - title: Annotation Error Detection for NLP
+    url: ""
+    date: "2025"
+    description: >-
+      Compared five traditional annotation-error methods with 15 LLM probability approaches across five
+      models on VariErr NLI. The strongest DeepSeek-R1 few-shot setup reached **0.2756 Average Precision**,
+      about 20% above the best traditional baseline.
+    technologies: [Python, NLP, LLM Evaluation, Research]
+    links: []
+    image: ""
+    video: ""
+  - title: Gender Bias Mitigation in LLMs
+    url: https://github.com/umutyesildal/GenderBiasReport
+    date: Research Project · 2025
+    description: >-
+      Built a controlled research pipeline comparing four prompting strategies for reducing gender bias in
+      LLM-generated educational text. Across **300 experimental trials**, Few-Shot + Verification and System
+      Prompt achieved 84.1% bias reduction while preserving semantic quality.
+    technologies: [Python, LLM Evaluation, AI Fairness, Statistical Analysis]
+    links:
+      - label: GitHub
+        url: https://github.com/umutyesildal/GenderBiasReport
+        icon: github
+    image: ""
+    video: ""
+
+earlierProjects:
+  - title: Mercedes Assistify
+    url: https://github.com/umutyesildal/mercedes-assistify
+    date: "2022"
+    technologies: [Flutter, Mobile UX, Backend]
+  - title: DaiDay
+    url: https://github.com/umutyesildal/daiday
+    date: "2021"
+    technologies: [Flutter, Hive, BLoC]
+  - title: coinTicker
+    url: https://github.com/umutyesildal/coinTicker
+    date: "2021"
+    technologies: [JavaScript, Frontend, Crypto]
+
+hackathons: []
