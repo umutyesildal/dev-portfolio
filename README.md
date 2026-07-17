@@ -11,7 +11,7 @@ replace the portrait, and deploy it as your own site.
 
 ## Quick start
 
-Requirements: Node.js 20.9 or newer and pnpm 11.
+Requirements: Node.js 22.13 or newer and pnpm 11.
 
 ```bash
 pnpm install
