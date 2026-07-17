@@ -12,7 +12,7 @@ site:
     Alongside building n8n infrastructure and internal workflows at Trade Republic,
     I am completing an M.Sc. focused on multilingual factual knowledge transfer in
     language models.
-  avatar: /umut-portrait.jpg
+  avatar: /examples/umut-portrait.jpg
 
 navigation:
   - label: Home
