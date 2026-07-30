@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import ProjectsSection from "@/components/section/projects-section";
-import WorkSection from "@/components/section/work-section";
+import ExperienceEducationSection from "@/components/section/experience-education-section";
 import { ContentIcon } from "@/components/content-icon";
 import { getPortfolioData } from "@/data/portfolio";
 
@@ -26,103 +26,49 @@ export default function PortfolioPage() {
   });
 
   return (
-    <main className="flex flex-col gap-14 py-4 sm:py-8">
-      <section className="flex flex-col gap-8">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+    <main className="flex flex-col gap-10 py-2 sm:py-4">
+      <section className="flex flex-col gap-6">
+        <div className="flex items-center justify-between gap-6 text-sm text-muted-foreground">
           <Link
             href={homeNavigation?.href ?? "/"}
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="transition-colors hover:text-foreground"
           >
             {homeNavigation?.label ?? "Home"}
           </Link>
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <span>{data.site.location}</span>
+          <div className="flex items-center gap-5">
             {headerSocials.map((social) => (
-              <span key={social.name} className="contents">
-                <span className="h-1 w-1 rounded-full bg-muted-foreground/50" />
-                <Link
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-foreground"
-                >
-                  {social.name}
-                </Link>
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-          <div className="space-y-5">
-            <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              {data.portfolio.label}
-            </span>
-            <h1 className="max-w-3xl text-4xl leading-[0.95] tracking-[-0.06em] sm:text-5xl lg:text-6xl [font-family:var(--font-display)]">
-              {data.portfolio.headline}
-            </h1>
-          </div>
-          <div className="max-w-md space-y-2 text-sm leading-7 text-muted-foreground sm:text-base">
-            <p>
-              {data.portfolio.intro}
-            </p>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/80">
-              {data.portfolio.companyLine}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-10 lg:grid-cols-[1.15fr_auto_0.85fr] lg:gap-8">
-        <div className="space-y-6">
-          <div className="mb-6 flex flex-col gap-2">
-            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-              {data.portfolio.experience.title}
-            </h2>
-            <p className="text-sm leading-6 text-muted-foreground">
-              {data.portfolio.experience.description}
-            </p>
-          </div>
-          <WorkSection work={data.work} />
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="hidden w-px self-stretch bg-border/60 lg:block"
-        />
-
-        <div className="space-y-6">
-          <div className="mb-6 flex flex-col gap-2">
-            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-              {data.portfolio.education.title}
-            </h2>
-            <p className="text-sm leading-6 text-muted-foreground">
-              {data.portfolio.education.description}
-            </p>
-          </div>
-          <div className="divide-y divide-border/60">
-            {data.education.map((item) => (
               <Link
-                key={item.school}
-                href={item.url}
+                key={social.name}
+                href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block py-5 transition-colors hover:text-foreground"
+                className="transition-colors hover:text-foreground"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-1">
-                    <h3 className="font-medium">{item.school}</h3>
-                    <p className="text-sm text-muted-foreground">{item.degree}</p>
-                  </div>
-                  <span className="shrink-0 text-xs text-muted-foreground">
-                    {item.start} - {item.end}
-                  </span>
-                </div>
+                {social.name}
               </Link>
             ))}
           </div>
         </div>
+
+        <div className="max-w-3xl space-y-5">
+          <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            {data.portfolio.label}
+          </span>
+          <h1 className="text-4xl leading-[0.95] tracking-[-0.06em] sm:text-5xl lg:text-6xl [font-family:var(--font-display)]">
+            {data.portfolio.headline}
+          </h1>
+          <div className="max-w-2xl space-y-3 text-sm leading-7 text-muted-foreground sm:text-base">
+            <p>{data.portfolio.intro}</p>
+          </div>
+        </div>
       </section>
+
+      <ExperienceEducationSection
+        experienceCopy={data.portfolio.experience}
+        educationCopy={data.portfolio.education}
+        work={data.work}
+        education={data.education}
+      />
 
       <ProjectsSection />
 

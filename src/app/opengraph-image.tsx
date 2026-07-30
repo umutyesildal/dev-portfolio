@@ -1,142 +1,201 @@
-import { ImageResponse } from "next/og";
-import { getPortfolioData } from "@/data/portfolio";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { ImageResponse } from "next/og";
+import { getPortfolioData } from "@/data/portfolio";
 
 export const runtime = "nodejs";
 
 const data = getPortfolioData();
+const preview = data.socialPreview;
 
-export const alt = data.site.name;
+export const alt = preview.imageAlt;
 export const size = {
-    width: 1200,
-    height: 630,
+  width: 1200,
+  height: 630,
 };
 export const contentType = "image/png";
 
-const styles = {
-    outerWrapper: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#ffffff",
-        position: "relative",
-    },
-    middleWrapper: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#ffffff",
-        position: "relative",
-        padding: "40px",
-    },
-    wrapper: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#fafafa",
-        position: "relative",
-        padding: "40px",
-        border: "1px solid #e5e5e5",
-        borderRadius: "12px",
-    },
-    imageSection: {
-        position: "absolute",
-        top: "40px",
-        left: "40px",
-        display: "flex",
-        alignItems: "center",
-    },
-    mainContainer: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
-        height: "100%",
-        width: "100%",
-        position: "relative",
-    },
-    image: {
-        width: "140px",
-        height: "140px",
-        borderRadius: "24px",
-        border: "4px solid #e5e5e5",
-        objectFit: "cover",
-    },
-    title: {
-        fontFamily: "Arial, sans-serif",
-        fontSize: "48px",
-        fontWeight: "600",
-        lineHeight: "1.1",
-        textAlign: "left",
-        color: "#000000",
-        marginBottom: "16px",
-        letterSpacing: "-0.02em",
-        maxWidth: "900px",
-    },
-    description: {
-        fontSize: "20px",
-        fontWeight: "400",
-        lineHeight: "1.5",
-        textAlign: "left",
-        maxWidth: "800px",
-        color: "#404040",
-        marginBottom: "32px",
-        textWrap: "balance",
-    },
-} as const;
+function getAvatarDataUrl() {
+  const avatarPath = path.join(
+    process.cwd(),
+    "public",
+    preview.avatar.replace(/^\//, "")
+  );
+  const mimeTypes: Record<string, string> = {
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".svg": "image/svg+xml",
+    ".webp": "image/webp",
+  };
+  const mimeType =
+    mimeTypes[path.extname(avatarPath).toLowerCase()] ?? "image/jpeg";
 
-export default async function Image() {
-    try {
-        const avatarPath = path.join(
-            process.cwd(),
-            "public",
-            data.site.avatar.replace(/^\//, "")
-        );
-        const avatarMimeTypes: Record<string, string> = {
-            ".jpg": "image/jpeg",
-            ".jpeg": "image/jpeg",
-            ".png": "image/png",
-            ".svg": "image/svg+xml",
-            ".webp": "image/webp",
-        };
-        const avatarMime = avatarMimeTypes[path.extname(avatarPath).toLowerCase()] ?? "image/jpeg";
-        const imageUrl = `data:${avatarMime};base64,${readFileSync(avatarPath).toString("base64")}`;
+  return `data:${mimeType};base64,${readFileSync(avatarPath).toString("base64")}`;
+}
 
-        return new ImageResponse(
-            (
-                <div style={styles.outerWrapper}>
-                    <div style={styles.middleWrapper}>
-                        <div style={styles.wrapper}>
-                            {imageUrl && (
-                                <div style={styles.imageSection}>
-                                    <img src={imageUrl} alt={data.site.name} style={styles.image} />
-                                </div>
-                            )}
-                            <div style={styles.mainContainer}>
-                                <div style={styles.title}>{data.site.name}</div>
-                                {data.site.description && (
-                                    <div style={styles.description}>{data.site.description}</div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ),
-            {
-                ...size,
-            }
-        );
-    } catch (error) {
-        console.error("Error generating OpenGraph image:", error);
-        return new Response(
-            `Failed to generate image: ${error instanceof Error ? error.message : "Unknown error"}`,
-            {
-                status: 500,
-            }
-        );
-    }
+export default function Image() {
+  const avatarDataUrl = getAvatarDataUrl();
+  const colors = preview.colors;
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          padding: 42,
+          position: "relative",
+          overflow: "hidden",
+          backgroundColor: colors.background,
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            width: 470,
+            height: 470,
+            borderRadius: 999,
+            top: -250,
+            left: -130,
+            backgroundColor: colors.accent,
+            opacity: 0.38,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: 999,
+            right: -170,
+            bottom: -240,
+            backgroundColor: colors.secondaryAccent,
+            opacity: 0.42,
+          }}
+        />
+
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "stretch",
+            position: "relative",
+            padding: 52,
+            border: `1px solid ${colors.border}`,
+            borderRadius: 28,
+            backgroundColor: colors.card,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              flex: 1,
+              justifyContent: "space-between",
+              paddingRight: 48,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontSize: 20,
+                fontWeight: 700,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: colors.mutedText,
+              }}
+            >
+              {preview.eyebrow}
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div
+                style={{
+                  display: "flex",
+                  maxWidth: 730,
+                  marginBottom: 22,
+                  fontSize: 68,
+                  fontWeight: 700,
+                  lineHeight: 1.02,
+                  letterSpacing: "-0.045em",
+                  color: colors.text,
+                }}
+              >
+                {preview.title}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  maxWidth: 720,
+                  fontSize: 25,
+                  lineHeight: 1.38,
+                  color: colors.mutedText,
+                }}
+              >
+                {preview.description}
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                fontSize: 20,
+                fontWeight: 600,
+                color: colors.text,
+              }}
+            >
+              <span
+                style={{
+                  width: 11,
+                  height: 11,
+                  marginRight: 12,
+                  borderRadius: 999,
+                  backgroundColor: colors.accent,
+                }}
+              />
+              {preview.footer}
+            </div>
+          </div>
+
+          <div
+            style={{
+              width: 272,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: 12,
+                border: `1px solid ${colors.border}`,
+                borderRadius: 42,
+                backgroundColor: colors.background,
+              }}
+            >
+              <img
+                src={avatarDataUrl}
+                alt={preview.imageAlt}
+                width={232}
+                height={232}
+                style={{
+                  width: 232,
+                  height: 232,
+                  borderRadius: 32,
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    size
+  );
 }
