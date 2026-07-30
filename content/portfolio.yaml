@@ -12,6 +12,22 @@ site:
     solving, and the kind of work you are looking for.
   avatar: /portrait-placeholder.svg
 
+socialPreview:
+  title: Your Name
+  description: Software engineer building thoughtful products and reliable systems.
+  eyebrow: Software Engineer · Product · Technology
+  footer: example.com
+  imageAlt: Social preview for Your Name's portfolio
+  avatar: /portrait-placeholder.svg
+  colors:
+    background: "#F5F7EE"
+    card: "#FAFAF7"
+    text: "#1D2117"
+    mutedText: "#62695A"
+    border: "#DDE2D4"
+    accent: "#BAE16E"
+    secondaryAccent: "#FFD6A7"
+
 navigation:
   - label: Home
     href: /
@@ -39,20 +55,19 @@ notFound:
 
 portfolio:
   metadataTitle: Portfolio
-  metadataDescription: Selected experience, projects, and skills from Your Name.
+  metadataDescription: Experience, projects, and skills from Your Name.
   label: Portfolio
   headline: Products, systems, and engineering work.
   intro: Replace this introduction with a focused summary of your professional profile.
-  companyLine: Example Company · Previous Company · Open Source
   headerSocials: [GitHub, LinkedIn]
   experience:
-    title: Selected Experience
+    title: Experience
     description: A short introduction to your most relevant professional experience.
   education:
     title: Education
     description: Degrees, programs, and training relevant to your work.
   projects:
-    label: Selected Projects
+    label: Projects
     title: Recent engineering work.
     description: A selection of projects that demonstrate your strongest skills.
   earlierProjects:
@@ -125,11 +140,13 @@ education:
     degree: M.Sc. Computer Science
     start: "2023"
     end: "2025"
+    coursework: [Advanced Algorithms, Machine Learning, Distributed Systems]
   - school: Example College
     url: https://example.edu
     degree: B.Sc. Software Engineering
     start: "2018"
     end: "2022"
+    coursework: []
 
 projects:
   - title: Project Alpha

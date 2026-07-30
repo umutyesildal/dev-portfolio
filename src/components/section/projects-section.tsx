@@ -30,6 +30,7 @@ export default function ProjectsSection() {
                         className="h-full"
                     >
                         <ProjectCard
+                            className="h-full"
                             href={project.url}
                             key={project.title}
                             title={project.title}
@@ -52,14 +53,14 @@ export default function ProjectsSection() {
                         </p>
                     </div>
                 </div>
-                <div className="divide-y divide-border/60">
+                <div className="grid gap-x-8 md:grid-cols-2">
                     {data.earlierProjects.map((project) => (
                         <Link
                             key={project.title}
                             href={project.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center justify-between gap-4 py-4"
+                            className="group flex items-center justify-between gap-4 border-t border-border/60 py-4"
                         >
                             <div className="min-w-0">
                                 <div className="flex items-center gap-2">

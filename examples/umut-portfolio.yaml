@@ -3,7 +3,7 @@ site:
   initials: UY
   language: en
   locale: en_US
-  url: https://yesildal.me
+  url: https://umut.yesildal.me
   location: Berlin, Germany
   locationUrl: https://www.google.com/maps/place/Berlin
   description: Software engineer building automation systems, data pipelines, and applied AI research from Berlin.
@@ -13,6 +13,22 @@ site:
     I am completing an M.Sc. focused on multilingual factual knowledge transfer in
     language models.
   avatar: /examples/umut-portrait.jpg
+
+socialPreview:
+  title: Umut Yunus Yesildal
+  description: Software engineer building automation systems, data pipelines, and applied AI research.
+  eyebrow: Software Engineer · Automation · Data & AI
+  footer: umut.yesildal.me
+  imageAlt: Social preview for Umut Yunus Yesildal's portfolio
+  avatar: /examples/umut-portrait.jpg
+  colors:
+    background: "#F4F7E8"
+    card: "#FCFCF7"
+    text: "#1C2114"
+    mutedText: "#5F6755"
+    border: "#D9E0CB"
+    accent: "#B9E06C"
+    secondaryAccent: "#FFD4A3"
 
 navigation:
   - label: Home
@@ -41,25 +57,24 @@ notFound:
 
 portfolio:
   metadataTitle: Portfolio
-  metadataDescription: Selected experience, projects, and skills from Umut Yunus Yesildal.
+  metadataDescription: Experience, projects, and skills from Umut Yunus Yesildal.
   label: Portfolio
   headline: Applied AI, data systems, and automation.
   intro: Berlin-based software engineer combining process automation, data engineering, and research in multilingual language models.
-  companyLine: Trade Republic · Project A · Metavest
   headerSocials: [GitHub, LinkedIn]
   experience:
-    title: Selected Experience
+    title: Experience
     description: Roles that shaped how I build across product, ops, and engineering.
   education:
     title: Education
-    description: A mix of current research-minded study and practical shipping.
+    description: Graduate study connecting language models, data systems, process mining, and applied AI.
   projects:
-    label: Selected Projects
+    label: Projects
     title: Recent engineering work.
-    description: Applied AI, data engineering, research, and automation projects from 2023–2026.
+    description: Applied AI, data engineering, research, and automation.
   earlierProjects:
     title: Earlier work
-    description: Selected mobile and frontend projects from my early engineering years.
+    description: Mobile and frontend projects from my early engineering years.
   skills:
     title: Skills & Tools
     description: The stack I reach for most often.
@@ -69,7 +84,7 @@ portfolio:
     socials: [GitHub, LinkedIn]
 
 contact:
-  email: umutyesildal97@gmail.com
+  email: umut@yesildal.me
   socials:
     - name: GitHub
       url: https://github.com/umutyesildal
@@ -88,7 +103,7 @@ contact:
       icon: globe
       navbar: false
     - name: Email
-      url: mailto:umutyesildal97@gmail.com
+      url: mailto:umut@yesildal.me
       icon: email
       navbar: false
 
@@ -166,6 +181,11 @@ education:
     degree: M.Sc. Computer Science
     start: "2024"
     end: Expected Oct 2026
+    coursework:
+      - Deep Learning and Natural Language Processing
+      - Medical Data Science
+      - Data Warehousing and Data Mining
+      - Business Process Automation
   - school: Turkish-German University
     url: https://www.tau.edu.tr/en
     degree: B.Sc. Computer Science

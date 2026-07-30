@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 const text = z.string().min(1);
+const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, "Use a six-digit hex color");
 const optionalAsset = z.string().default("");
 const publicAsset = z
   .string()
@@ -46,6 +47,23 @@ export const portfolioSchema = z.object({
     summary: text,
     avatar: publicAsset,
   }),
+  socialPreview: z.object({
+    title: text,
+    description: text,
+    eyebrow: text,
+    footer: text,
+    imageAlt: text,
+    avatar: publicAsset,
+    colors: z.object({
+      background: hexColor,
+      card: hexColor,
+      text: hexColor,
+      mutedText: hexColor,
+      border: hexColor,
+      accent: hexColor,
+      secondaryAccent: hexColor,
+    }),
+  }),
   navigation: z.array(
     z.object({
       label: text,
@@ -78,7 +96,6 @@ export const portfolioSchema = z.object({
     label: text,
     headline: text,
     intro: text,
-    companyLine: text,
     headerSocials: z.array(text),
     experience: sectionCopySchema,
     education: sectionCopySchema,
@@ -129,6 +146,7 @@ export const portfolioSchema = z.object({
       degree: text,
       start: text,
       end: text,
+      coursework: z.array(text).default([]),
     })
   ),
   projects: z.array(
@@ -217,4 +235,5 @@ export const portfolioSchema = z.object({
 
 export type PortfolioData = z.infer<typeof portfolioSchema>;
 export type WorkItem = PortfolioData["work"][number];
+export type EducationItem = PortfolioData["education"][number];
 export type ProjectItem = PortfolioData["projects"][number];

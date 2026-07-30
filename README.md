@@ -63,6 +63,7 @@ The main sections are:
 
 ```yaml
 site: {}
+socialPreview: {}
 navigation: []
 home: {}
 notFound: {}
@@ -74,6 +75,42 @@ education: []
 projects: []
 earlierProjects: []
 hackathons: []
+```
+
+`socialPreview` controls the title, description, portrait, labels, and colors used
+when the site is shared in WhatsApp, LinkedIn, X, Slack, and other Open Graph
+clients. The generated image stays in the template layout while its content and
+visual theme come entirely from YAML:
+
+```yaml
+socialPreview:
+  title: Your Name
+  description: Software engineer building thoughtful products and reliable systems.
+  eyebrow: Software Engineer · Product · Technology
+  footer: example.com
+  imageAlt: Social preview for Your Name's portfolio
+  avatar: /portrait-placeholder.svg
+  colors:
+    background: "#F5F7EE"
+    card: "#FAFAF7"
+    text: "#1D2117"
+    mutedText: "#62695A"
+    border: "#DDE2D4"
+    accent: "#BAE16E"
+    secondaryAccent: "#FFD6A7"
+```
+
+Education entries can optionally expose selected coursework inside the animated
+Experience/Education view. Keep course names factual and concise:
+
+```yaml
+education:
+  - school: Example University
+    url: https://example.edu
+    degree: M.Sc. Computer Science
+    start: "2023"
+    end: "2025"
+    coursework: [Machine Learning, Distributed Systems]
 ```
 
 Project descriptions support simple Markdown. Icons are written as names such as
