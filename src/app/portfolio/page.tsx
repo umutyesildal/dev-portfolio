@@ -73,7 +73,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+      <section className="grid gap-10 lg:grid-cols-[1.15fr_auto_0.85fr] lg:gap-8">
         <div className="space-y-6">
           <div className="mb-6 flex flex-col gap-2">
             <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
@@ -85,6 +85,11 @@ export default function PortfolioPage() {
           </div>
           <WorkSection work={data.work} />
         </div>
+
+        <div
+          aria-hidden="true"
+          className="hidden w-px self-stretch bg-border/60 lg:block"
+        />
 
         <div className="space-y-6">
           <div className="mb-6 flex flex-col gap-2">

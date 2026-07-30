@@ -6,10 +6,10 @@ site:
   url: https://yesildal.me
   location: Berlin, Germany
   locationUrl: https://www.google.com/maps/place/Berlin
-  description: Software engineer building automation systems, data products, and applied AI experiments from Berlin.
+  description: Software engineer building automation systems, data pipelines, and applied AI research from Berlin.
   summary: >-
-    I work across automation engineering, applied AI, and data-intensive systems.
-    Alongside building n8n infrastructure and internal workflows at Trade Republic,
+    I work across process automation, data engineering, and applied AI. Alongside
+    building n8n infrastructure and maintainable operational workflows at Trade Republic,
     I am completing an M.Sc. focused on multilingual factual knowledge transfer in
     language models.
   avatar: /examples/umut-portrait.jpg
@@ -26,7 +26,7 @@ home:
   eyebrow: Software Engineer · Automation · Data & AI
   headline: I build automation systems, data products, and applied AI experiments.
   subheadline: Berlin-based, combining production engineering with current research in multilingual language models.
-  featuredSocials: [GitHub, X, Email]
+  featuredSocials: [GitHub, LinkedIn, Email]
   portfolioCta:
     label: Open Portfolio
     href: /portfolio
@@ -44,9 +44,9 @@ portfolio:
   metadataDescription: Selected experience, projects, and skills from Umut Yunus Yesildal.
   label: Portfolio
   headline: Applied AI, data systems, and automation.
-  intro: Berlin-based software engineer combining production automation, data engineering, and current research in multilingual language models.
-  companyLine: Trade Republic · Project A / A11 · Metavest
-  headerSocials: [GitHub, X]
+  intro: Berlin-based software engineer combining process automation, data engineering, and research in multilingual language models.
+  companyLine: Trade Republic · Project A · Metavest
+  headerSocials: [GitHub, LinkedIn]
   experience:
     title: Selected Experience
     description: Roles that shaped how I build across product, ops, and engineering.
@@ -56,7 +56,7 @@ portfolio:
   projects:
     label: Selected Projects
     title: Recent engineering work.
-    description: Applied AI, data engineering, research, and automation projects from 2025–2026.
+    description: Applied AI, data engineering, research, and automation projects from 2023–2026.
   earlierProjects:
     title: Earlier work
     description: Selected mobile and frontend projects from my early engineering years.
@@ -65,15 +65,19 @@ portfolio:
     description: The stack I reach for most often.
   contact:
     title: Let's Talk
-    description: If you want to talk about product tooling, automation, AI workflows, or a frontend-heavy build, the best starting point is email.
-    socials: [GitHub, X]
+    description: If you want to talk about process automation, data engineering, applied AI, or software products, the best starting point is email.
+    socials: [GitHub, LinkedIn]
 
 contact:
-  email: hello@yesildal.me
+  email: umutyesildal97@gmail.com
   socials:
     - name: GitHub
       url: https://github.com/umutyesildal
       icon: github
+      navbar: true
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/yesildal
+      icon: linkedin
       navbar: true
     - name: X
       url: https://twitter.com/umutyyesildal
@@ -84,7 +88,7 @@ contact:
       icon: globe
       navbar: false
     - name: Email
-      url: mailto:hello@yesildal.me
+      url: mailto:umutyesildal97@gmail.com
       icon: email
       navbar: false
 
@@ -95,45 +99,50 @@ skills:
     icon: nextjs
   - name: TypeScript
     icon: typescript
+  - name: SQL
   - name: Node.js
     icon: nodejs
   - name: Python
     icon: python
+  - name: Rust
+  - name: React Native
+  - name: Flutter
   - name: n8n
-  - name: Automation
-  - name: AI Workflows
-  - name: Data Engineering
-  - name: NLP
+  - name: Make.com
   - name: PostgreSQL
   - name: Docker
+  - name: Selenium
+  - name: REST APIs
+  - name: OpenAI API
   - name: Notion API
+  - name: CI/CD
   - name: PM4Py
 
 work:
   - company: Trade Republic
     url: https://www.traderepublic.com/
     location: Berlin
-    title: Product Ops Working Student
+    title: Process & Automation Engineering WS (Product Operations)
     logo: ""
     start: Jan 2026
     end: Present
-    description: Building n8n infrastructure for internal operations, shipping workflows for cross-team communication, and debugging automation flows used by multiple teams.
-  - company: Project A / A11
+    description: Develop and maintain n8n infrastructure and workflows for internal operations and cross-team communication. Troubleshoot automation failures with partner teams, translate operational requirements into maintainable workflows, and support teams during implementation.
+  - company: Project A
     url: https://www.project-a.com/
     location: Berlin
-    title: Talent & RecOps Working Student
+    title: Process & Automation Engineering WS (Talent & RecOps)
     logo: ""
     start: Mar 2024
     end: Sep 2025
-    description: Owned automations, data flows, and AI tooling inside a 20-person recruiting team. Built workflows with n8n and Make, Node.js scrapers across 100+ sites, and Notion-backed dashboards for internal KPIs.
+    description: Owned technical delivery for automation and data-flow initiatives in a 20-person recruiting team. Built n8n and Make.com workflows for candidate data, KPIs, and referral payments; Node.js pipelines across 100+ job sites; and Notion-backed recruiting workflows and dashboards.
   - company: Metavest
     url: https://metavest.app/
     location: Istanbul
-    title: Software Developer
+    title: Software Engineer
     logo: ""
     start: Feb 2022
     end: Oct 2023
-    description: Worked across web, mobile, backend, and blockchain-related integrations in a fast-moving crypto startup. Shipped Next.js and React Native features, built internal scrapers, and supported backend integrations with PostgreSQL and Node.js services.
+    description: Shipped web and mobile features with Next.js, React, React Native, Node.js, and PostgreSQL. Built Python and Selenium pipelines tracking 100+ competitors and 200K+ data points, automated 100+ SEO articles with the OpenAI API while accelerating creation by 30%+, and implemented backend and blockchain integrations.
   - company: Platri IT GmbH
     url: ""
     location: Remote
@@ -141,7 +150,7 @@ work:
     logo: ""
     start: Mar 2021
     end: Jan 2022
-    description: Developed Flutter applications from prototype to release with BLoC state management, reusable package architecture, and multiple local database strategies.
+    description: Developed and released Flutter applications with BLoC, null safety, and modern mobile architecture. Built Node.js backend features for scalable content delivery and contributed to DanceFlavors, a dance community app backed by an audience of 1M+ Instagram followers.
   - company: Various Projects
     url: ""
     location: Istanbul
@@ -175,41 +184,13 @@ projects:
     links: []
     image: ""
     video: ""
-  - title: Daily Berlin Jobs
-    url: https://github.com/umutyesildal/daily-berlin-jobs
-    date: Open Source Product · 2026
-    description: >-
-      Built an open-source, consumer-facing job board and ingestion pipeline for Berlin engineering roles.
-      The system collects jobs from company sources, classifies them through a versioned Python taxonomy,
-      publishes normalized data, and serves a minimal Next.js search experience.
-    technologies: [Python, Next.js, PostgreSQL, Data Pipelines]
-    links:
-      - label: GitHub
-        url: https://github.com/umutyesildal/daily-berlin-jobs
-        icon: github
-    image: ""
-    video: ""
-  - title: yesildal.me Portfolio
-    url: https://github.com/umutyesildal/yesildal.me
-    date: Open Source · Ongoing
-    description: >-
-      Designed and built my personal portfolio as a minimal, responsive showcase for engineering work and
-      experience. The project uses reusable content sections, theme support, subtle motion, and separate
-      landing and portfolio routes.
-    technologies: [Next.js, React, TypeScript, Tailwind CSS]
-    links:
-      - label: GitHub
-        url: https://github.com/umutyesildal/yesildal.me
-        icon: github
-    image: ""
-    video: ""
   - title: Spatial-Aware Process Mining
     url: ""
     date: 2025–2026
     description: >-
-      Designed a compact **Space XES extension** for coordinates, reference systems, floor levels, and
-      discrete locations. Implemented PM4Py preprocessing and validation utilities, then tested them across
-      Citibike, truck-shipment, and synthetic factory logs.
+      Designed a compact **Space XES extension** for structured coordinates, CRS, floor/level, and discrete
+      location semantics. Implemented PM4Py preprocessing for spatial-column detection, validation, type
+      normalization, and CRS handling; tested it across three datasets covering 736 events and seven routes.
     technologies: [Python, PM4Py, XES, Testing]
     links: []
     image: ""
@@ -225,6 +206,18 @@ projects:
     links: []
     image: ""
     video: ""
+  - title: On-Chain Market Intelligence & Signal Automation
+    url: ""
+    date: 2023–2025
+    description: >-
+      Led end-to-end operations for a private 10-person on-chain market-intelligence project while members
+      retained independent execution and risk decisions. Built Python and Rust automation for blockchain
+      data collection, token monitoring, analytics, and profitability estimation; the group collectively
+      realized approximately **$2.5M in net P&L** between 2023 and 2025.
+    technologies: [Python, Rust, Blockchain Data, Automation]
+    links: []
+    image: ""
+    video: ""
   - title: Annotation Error Detection for NLP
     url: ""
     date: "2025"
@@ -234,6 +227,19 @@ projects:
       about 20% above the best traditional baseline.
     technologies: [Python, NLP, LLM Evaluation, Research]
     links: []
+    image: ""
+    video: ""
+  - title: yesildal.me Portfolio
+    url: https://github.com/umutyesildal/dev-portfolio
+    date: Open Source Template · 2026
+    description: >-
+      Built a reusable, responsive developer-portfolio template with YAML-driven content, validated data,
+      theme support, subtle motion, and separate landing and portfolio routes.
+    technologies: [Next.js, React, TypeScript, Tailwind CSS]
+    links:
+      - label: GitHub
+        url: https://github.com/umutyesildal/dev-portfolio
+        icon: github
     image: ""
     video: ""
   - title: Gender Bias Mitigation in LLMs
