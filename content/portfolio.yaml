@@ -50,7 +50,7 @@ notFound:
 
 portfolio:
   metadataTitle: Portfolio
-  metadataDescription: Experience, projects, and skills from Your Name.
+  metadataDescription: Experience, projects, and background from Your Name.
   headline: Products, systems, and engineering work.
   intro: Replace this introduction with a focused summary of your professional profile.
   headerSocials: [GitHub, LinkedIn]
