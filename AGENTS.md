@@ -9,6 +9,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 - Content shape and required fields are defined in `src/data/schema.ts`.
 - Images and downloadable files belong in `public/`; reference them from YAML with
   root-relative paths such as `/portrait.jpg`.
+- `site.url` must be the absolute production URL of the deployed site. Canonical
+  URLs, `sitemap.xml`, `robots.txt`, and JSON-LD all read from it.
 - `examples/umut-portfolio.yaml` is a reference implementation, not active site
   content. Do not edit or copy its personal claims into another person's portfolio.
 - `PORTFOLIO_CONTENT_FILE` may select another repository-relative YAML file at
@@ -21,8 +23,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 
 1. Read the supplied CV or resume completely.
 2. Read `content/portfolio.yaml` and `src/data/schema.ts` before editing.
-3. Replace the example identity, summary, contact details, experience, education,
-   skills, and projects with evidence from the supplied material.
+3. Replace the example identity, contact details, experience, education, skills,
+   and projects with evidence from the supplied material.
 4. Prioritize recent, technically substantial work. Move older work to
    `earlierProjects` when it is still useful but should not dominate the page.
 5. Preserve measurable results exactly. Do not invent dates, metrics, employers,
@@ -30,23 +32,39 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 6. Leave an optional URL or asset field empty when no verified value is available.
 7. Keep descriptions concise and recruiter-readable. Project descriptions may use
    simple Markdown such as `**bold text**`.
-8. Add new icon names only through `src/components/content-icon.tsx`; YAML must
-   contain icon names, never JSX.
+8. Add the portrait as a square image at least 960×960 px, with the face centered.
+   Place it in `public/` and point both `site.avatar` and `socialPreview.avatar` at
+   the same root-relative path. Never hotlink a remote image.
 
 ## Content rules
 
 - Keep all visible personal copy in YAML.
 - Use plain strings for dates so ranges and labels retain their intended formatting.
-- Use unique names for work entries and projects.
-- Keep social names referenced by `featuredSocials`, `headerSocials`, and `socials`
-  synchronized with `contact.socials[].name`.
+  Quote numeric-looking years, for example `"2025"`.
+- Use unique names for social entries, work entries, and projects. A work entry is
+  identified by the pair `company` + `title`.
+- Keep social names referenced by `home.featuredSocials`,
+  `portfolio.headerSocials`, and `portfolio.contact.socials` synchronized with
+  `contact.socials[].name`.
+- Use `skills[].group` to create readable headings such as `Frontend` or
+  `Data & backend`. Ungrouped skills fall back to a single `Skills` group. Keep
+  related skills adjacent; groups render in first-appearance order.
+- Use `work[].shortTitle` only as a shortened form of `work[].title` for the
+  collapsed accordion row. It is optional and falls back to the full title. Do not
+  use it to change the role.
+- `projects[].metric` is optional and appears as a short marker next to the project
+  title. Use only a figure supported by the source material, keep it brief (`3×`,
+  `40%`, `0.2756 AP`), and leave it empty when nothing is verified. Never invent,
+  extrapolate, or embellish a metric.
+- `projects[].image` is optional and expects a root-relative screenshot in
+  `public/`, roughly 16:9. Leave it empty when no suitable image exists.
 - Keep project links public and safe to expose.
 - Do not place secrets, private repository URLs, API keys, phone numbers, or private
   addresses in the template unless the user explicitly requests publication.
 - Treat the checked-in identity, copy, and portrait as demo content. Replace them;
   do not present the demo person's identity as the new portfolio owner's.
-- When introducing a new icon name, update both `src/data/schema.ts` and
-  `src/components/content-icon.tsx`.
+- The schema has no fields for icons, logos, videos, summaries, or hackathons. Do
+  not add them to YAML or reintroduce icon registries.
 
 ## Commands
 
@@ -54,6 +72,7 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 pnpm install
 pnpm dev
 pnpm lint
+pnpm typecheck
 pnpm build
 ```
 
@@ -61,7 +80,20 @@ pnpm build
 
 - `content/portfolio.yaml` contains the requested content and passes Zod validation.
 - `pnpm lint` has no errors.
+- `pnpm typecheck` passes.
 - `pnpm build` succeeds.
 - `/` and `/portfolio` render successfully.
+- `site.url` is an absolute production URL, and the portrait meets the size and
+  aspect-ratio requirements.
 - External links and image paths are checked when they were changed.
 - Content-only tasks do not introduce unrelated component or styling changes.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

@@ -7,9 +7,6 @@ site:
   location: Your City, Country
   locationUrl: https://www.google.com/maps
   description: Software engineer building thoughtful products and reliable systems.
-  summary: >-
-    Write a short introduction that explains what you build, the problems you enjoy
-    solving, and the kind of work you are looking for.
   avatar: /portrait-placeholder.svg
 
 socialPreview:
@@ -20,21 +17,19 @@ socialPreview:
   imageAlt: Social preview for Your Name's portfolio
   avatar: /portrait-placeholder.svg
   colors:
-    background: "#F5F7EE"
-    card: "#FAFAF7"
-    text: "#1D2117"
-    mutedText: "#62695A"
-    border: "#DDE2D4"
-    accent: "#BAE16E"
-    secondaryAccent: "#FFD6A7"
+    background: "#FAF8EF"
+    card: "#FDFCF7"
+    text: "#212214"
+    mutedText: "#59594A"
+    border: "#E2DDCE"
+    accent: "#B9E06C"
+    secondaryAccent: "#FFD4A3"
 
 navigation:
   - label: Home
     href: /
-    icon: home
   - label: Portfolio
     href: /portfolio
-    icon: portfolio
 
 home:
   eyebrow: Software Engineer · Product · Technology
@@ -56,29 +51,22 @@ notFound:
 portfolio:
   metadataTitle: Portfolio
   metadataDescription: Experience, projects, and skills from Your Name.
-  label: Portfolio
   headline: Products, systems, and engineering work.
   intro: Replace this introduction with a focused summary of your professional profile.
   headerSocials: [GitHub, LinkedIn]
   experience:
     title: Experience
-    description: A short introduction to your most relevant professional experience.
   education:
     title: Education
-    description: Degrees, programs, and training relevant to your work.
   projects:
-    label: Projects
-    title: Recent engineering work.
-    description: A selection of projects that demonstrate your strongest skills.
+    title: Selected work
   earlierProjects:
-    title: Earlier Work
-    description: Older projects that are still useful to show.
+    title: Earlier work
   skills:
-    title: Skills & Tools
-    description: Technologies and practices you use regularly.
+    title: Stack
   contact:
-    title: Let's Talk
-    description: Replace this copy with the best way to contact you about opportunities or collaborations.
+    title: Let's talk.
+    description: Email is the fastest way to reach you.
     socials: [GitHub, LinkedIn, Email]
 
 contact:
@@ -86,42 +74,37 @@ contact:
   socials:
     - name: GitHub
       url: https://github.com/your-username
-      icon: github
-      navbar: true
     - name: LinkedIn
       url: https://www.linkedin.com/in/your-username
-      icon: linkedin
-      navbar: true
     - name: Website
       url: https://example.com
-      icon: globe
-      navbar: false
     - name: Email
       url: mailto:hello@example.com
-      icon: email
-      navbar: false
 
 skills:
   - name: React
-    icon: react
+    group: Frontend
   - name: Next.js
-    icon: nextjs
+    group: Frontend
   - name: TypeScript
-    icon: typescript
+    group: Frontend
   - name: Node.js
-    icon: nodejs
+    group: Backend
   - name: Python
-    icon: python
+    group: Backend
   - name: PostgreSQL
+    group: Data
   - name: Testing
+    group: Practices
   - name: System Design
+    group: Practices
 
 work:
   - company: Example Company
     url: https://example.com
     location: Your City
     title: Software Engineer
-    logo: ""
+    shortTitle: Software Engineer
     start: Jan 2024
     end: Present
     description: Describe your responsibilities, the systems you built, and one measurable outcome.
@@ -129,7 +112,7 @@ work:
     url: https://example.com
     location: Remote
     title: Junior Software Engineer
-    logo: ""
+    shortTitle: Junior Engineer
     start: Jun 2022
     end: Dec 2023
     description: Summarize the most relevant contribution from this role in one or two sentences.
@@ -152,6 +135,7 @@ projects:
   - title: Project Alpha
     url: https://github.com/your-username/project-alpha
     date: "2025"
+    metric: 3×
     description: >-
       Explain the problem, your solution, and the result. Use **bold text** sparingly
       to highlight a meaningful metric or technical achievement.
@@ -159,22 +143,18 @@ projects:
     links:
       - label: GitHub
         url: https://github.com/your-username/project-alpha
-        icon: github
     image: ""
-    video: ""
   - title: Project Beta
     url: ""
     date: "2024"
+    metric: 40%
     description: Describe a second project that demonstrates a different part of your skill set.
     technologies: [Python, Data Engineering, APIs]
     links: []
     image: ""
-    video: ""
 
 earlierProjects:
   - title: Early Project
     url: https://github.com/your-username/early-project
     date: "2022"
     technologies: [React, Node.js]
-
-hackathons: []

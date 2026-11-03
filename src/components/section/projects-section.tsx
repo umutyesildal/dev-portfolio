@@ -1,81 +1,61 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import { ProjectCard } from "@/components/project-card";
-import { getPortfolioData } from "@/data/portfolio";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { ProjectRow } from "@/components/project-row";
+import { SectionHeading } from "@/components/section-heading";
+import { getPortfolioData } from "@/data/portfolio";
 
-const BLUR_FADE_DELAY = 0.04;
+function yearOf(date: string) {
+  return date.match(/(?:19|20)\d{2}/)?.[0] ?? "";
+}
 
 export default function ProjectsSection() {
-    const data = getPortfolioData();
+  const data = getPortfolioData();
 
-    return (
-        <section id="projects" className="flex min-h-0 flex-col gap-y-8 border-t border-border/60 pt-8">
-            <div className="flex flex-col gap-y-3">
-                <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    {data.portfolio.projects.label}
-                </span>
-                <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                    {data.portfolio.projects.title}
-                </h2>
-                <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-                    {data.portfolio.projects.description}
-                </p>
-            </div>
-            <div className="grid grid-cols-1 gap-4 xl:grid-cols-2 auto-rows-fr">
-                {data.projects.map((project, id) => (
-                    <BlurFade
-                        key={project.title}
-                        delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-                        className="h-full"
-                    >
-                        <ProjectCard
-                            className="h-full"
-                            href={project.url}
-                            key={project.title}
-                            title={project.title}
-                            description={project.description}
-                            dates={project.date}
-                            tags={project.technologies}
-                            image={project.image}
-                            video={project.video}
-                            links={project.links}
-                        />
-                    </BlurFade>
-                ))}
-            </div>
-            <div className="border-t border-border/60 pt-7">
-                <div className="mb-4 flex items-center justify-between gap-4">
-                    <div>
-                        <h3 className="font-semibold">{data.portfolio.earlierProjects.title}</h3>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                            {data.portfolio.earlierProjects.description}
-                        </p>
-                    </div>
-                </div>
-                <div className="grid gap-x-8 md:grid-cols-2">
-                    {data.earlierProjects.map((project) => (
-                        <Link
-                            key={project.title}
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex items-center justify-between gap-4 border-t border-border/60 py-4"
-                        >
-                            <div className="min-w-0">
-                                <div className="flex items-center gap-2">
-                                    <span className="font-medium">{project.title}</span>
-                                    <span className="text-xs text-muted-foreground">{project.date}</span>
-                                </div>
-                                <p className="mt-1 truncate text-xs text-muted-foreground">
-                                    {project.technologies.join(" · ")}
-                                </p>
-                            </div>
-                            <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="mt-20 sm:mt-28">
+      <SectionHeading
+        title={data.portfolio.projects.title}
+        description={data.portfolio.projects.description || undefined}
+      />
+
+      <div className="mt-8 border-b border-border/80">
+        {data.projects.map((project) => (
+          <ProjectRow key={project.title} project={project} />
+        ))}
+      </div>
+
+      <div className="mt-10">
+        <h3 className="text-[18px] font-medium tracking-[-0.02em]">
+          {data.portfolio.earlierProjects.title}
+        </h3>
+        {data.portfolio.earlierProjects.description ? (
+          <p className="mt-1 max-w-[52ch] text-[13px] leading-relaxed text-muted-foreground">
+            {data.portfolio.earlierProjects.description}
+          </p>
+        ) : null}
+        <div className="mt-4 grid gap-x-12 sm:grid-cols-2">
+          {data.earlierProjects.map((project) => (
+            <Link
+              key={project.title}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-baseline justify-between gap-4 border-t border-border/60 py-3"
+            >
+              <span className="flex items-baseline gap-2 text-sm">
+                {project.title}
+                <ArrowUpRight
+                  aria-hidden
+                  className="size-3 text-muted-foreground opacity-40 transition-opacity duration-150 sm:opacity-0 sm:group-hover:opacity-100"
+                />
+              </span>
+              <span className="mono-label tabular-nums text-muted-foreground">
+                {yearOf(project.date)}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

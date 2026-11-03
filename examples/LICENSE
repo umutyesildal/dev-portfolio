@@ -1,0 +1,16 @@
+Copyright (c) 2026 Umut Yunus Yesildal. All rights reserved.
+
+The file examples/umut-portfolio.yaml and the contents of public/examples/,
+including portrait images and any other personal assets, contain personal
+content, personal information, and likeness.
+
+These files are NOT covered by the repository's MIT license in ../LICENSE.
+
+You may not copy, redistribute, publish, or reuse this content, in whole or in
+part, including any name, biography, employment history, project descriptions,
+contact details, or portrait and likeness, without prior written permission
+from the copyright holder.
+
+The MIT license applies only to the template code and to the demo content in
+content/portfolio.yaml. It does not apply to this directory, to public/examples/,
+or to the screenshots in docs/ that show this example profile.
