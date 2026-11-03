@@ -193,7 +193,7 @@ projects:
     metric: n8n winner
     description: >-
       AI vendor due diligence where every claim must cite real evidence. Built in n8n with Nebius
-      Token Factory and Tavily; won **Best use of n8n** at Nebius Build Week 2026.
+      Token Factory and Tavily; won **Best use of n8n** at Nebius Build Week with NVIDIA 2026.
     technologies: [n8n, Nebius, Tavily, AI Agents]
     links:
       - label: GitHub

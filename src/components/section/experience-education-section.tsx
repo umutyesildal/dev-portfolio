@@ -56,7 +56,7 @@ function EducationPanel({ education }: { education: EducationItem[] }) {
           </div>
 
           <span className="mono-label tabular-nums text-muted-foreground sm:text-right">
-            {item.start} — {item.end}
+            {item.start} – {item.end}
           </span>
         </article>
       ))}

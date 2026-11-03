@@ -33,13 +33,13 @@ export default function WorkSection({ work }: { work: WorkItem[] }) {
                 {item.location ? ` · ${item.location}` : ""}
               </p>
               <p className="mono-label mt-1.5 text-muted-foreground sm:hidden">
-                {item.start} — {item.end}
+                {item.start} – {item.end}
               </p>
             </div>
 
             <div className="flex shrink-0 items-center gap-3 pt-1">
               <span className="mono-label hidden tabular-nums text-muted-foreground sm:inline">
-                {item.start} — {item.end}
+                {item.start} – {item.end}
               </span>
               <ChevronDown
                 aria-hidden

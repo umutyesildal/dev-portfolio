@@ -16,7 +16,7 @@ Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
   `content/portfolio.yaml`.
 - Zod validates the YAML on the server; invalid content fails the build with the
   exact path, such as `projects.0.title`.
-- Warm editorial theme — cream paper, ink text, lime used only as a marker —
+- Warm editorial theme with cream paper, ink text, and lime used only as a marker,
   defined as CSS tokens. Light mode only, by design.
 - Instrument Sans for text and Geist Mono for metadata, loaded with
   `next/font/google`.
@@ -285,7 +285,7 @@ Fonts live in `src/app/fonts.ts`: Instrument Sans is exposed as
 keep those variable names or update the `@theme inline` mappings.
 
 If you change the site palette, update `socialPreview.colors` and `themeColor`
-separately — the YAML colors do not reach the site CSS.
+separately. The YAML colors do not reach the site CSS.
 
 ## Multiple profiles from one repository
 
@@ -304,13 +304,13 @@ Preview, and Development. The included CI workflow builds both the default
 template and the example profile.
 
 `examples/umut-portfolio.yaml` is a complete real-world example. Its content and
-portrait are personal and are **not** MIT licensed — see
+portrait are personal and are **not** MIT licensed. See
 [`examples/LICENSE`](examples/LICENSE).
 
 ## Project structure
 
 ```text
-content/portfolio.yaml          Demo content — replace this
+content/portfolio.yaml          Demo content, replace this
 examples/
   umut-portfolio.yaml           Full example profile (not MIT)
   LICENSE                       Terms for the example content
@@ -392,5 +392,5 @@ MIT © 2026 Umut Yunus Yesildal. Portions of this template are derived from
 Dillion Verma's portfolio (© 2024 Dillion Verma), used under the MIT License.
 
 The example content in `examples/umut-portfolio.yaml` and `public/examples/` is
-personal and excluded from the MIT license — see [`examples/LICENSE`](examples/LICENSE).
+personal and excluded from the MIT license. See [`examples/LICENSE`](examples/LICENSE).
 Third-party license texts are in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

@@ -223,7 +223,7 @@ export const portfolioSchema = z
       },
       {
         path: ["work"],
-        values: data.work.map((item) => `${item.company} — ${item.title}`),
+        values: data.work.map((item) => `${item.company} / ${item.title}`),
       },
       { path: ["projects"], values: data.projects.map((item) => item.title) },
       {
