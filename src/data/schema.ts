@@ -115,8 +115,7 @@ export const portfolioSchema = z
       }),
       openSource: sectionCopySchema,
       earlierProjects: sectionCopySchema,
-      skills: sectionCopySchema,
-      contact: sectionCopySchema.extend({
+      contact: z.object({
         socials: z.array(text),
       }),
     }),
@@ -129,12 +128,6 @@ export const portfolioSchema = z
         })
       ),
     }),
-    skills: z.array(
-      z.object({
-        name: text,
-        group: optionalText,
-      })
-    ),
     work: z.array(
       z.object({
         company: text,
@@ -251,4 +244,3 @@ export type PortfolioData = z.infer<typeof portfolioSchema>;
 export type WorkItem = PortfolioData["work"][number];
 export type EducationItem = PortfolioData["education"][number];
 export type ProjectItem = PortfolioData["projects"][number];
-export type SkillItem = PortfolioData["skills"][number];

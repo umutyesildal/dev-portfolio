@@ -20,8 +20,8 @@ Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
   defined as CSS tokens. Light mode only, by design.
 - Instrument Sans for text and Geist Mono for metadata, loaded with
   `next/font/google`.
-- Skills grouped by `group`, compact role titles via `shortTitle`, and a factual
-  highlight per project via `metric`.
+- Compact role titles via `shortTitle` and a factual highlight per project via
+  `metric`.
 - Server-rendered Markdown in project descriptions (`react-markdown`).
 - Motion is CSS only, with no animation library and full
   `prefers-reduced-motion` support.
@@ -164,8 +164,6 @@ Every name in `home.featuredSocials` must match a `contact.socials[].name`.
 | `portfolio.openSource.description` | No | Optional open-source section intro. |
 | `portfolio.earlierProjects.title` | Yes | Earlier-work section heading. |
 | `portfolio.earlierProjects.description` | No | Optional section intro. |
-| `portfolio.skills.title` | Yes | Skills section heading. |
-| `portfolio.skills.description` | No | Optional section intro. |
 | `portfolio.contact.title` | Yes | Contact section heading. |
 | `portfolio.contact.description` | No | Optional contact line. |
 | `portfolio.contact.socials` | Yes | List of `contact.socials[].name` values for the contact section. |
@@ -179,15 +177,6 @@ Every name in `home.featuredSocials` must match a `contact.socials[].name`.
 | `contact.socials[].url` | Yes | Profile URL, `mailto:`, `tel:`, or root-relative path. |
 
 Names must be unique. Referenced names that do not exist fail validation.
-
-### `skills`
-
-| Key | Required | Description |
-| --- | --- | --- |
-| `skills[].name` | Yes | Skill or tool name. |
-| `skills[].group` | No | Group heading, such as `Frontend`. Ungrouped skills fall back to `Skills`. |
-
-Groups render in the order they first appear, so keep related skills adjacent.
 
 ### `work`
 
@@ -328,7 +317,7 @@ src/
     globals.css                 Tailwind 4 theme and tokens
     fonts.ts                    Instrument Sans + Geist Mono
   components/
-    section/                    Experience/education, projects, skills, contact
+    section/                    Experience/education, projects, contact
     ui/                         shadcn/ui primitives
   data/
     schema.ts                   Zod content schema

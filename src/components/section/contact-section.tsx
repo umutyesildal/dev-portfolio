@@ -13,42 +13,35 @@ export default function ContactSection() {
   });
 
   return (
-    <section className="mt-20 border-t border-border/80 pt-8 sm:mt-32">
-      <h2 className="max-w-[14ch] text-[clamp(2.75rem,6vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.04em]">
-        {data.portfolio.contact.title}
-      </h2>
+    <section className="mt-14 border-t border-border/80 pt-6 sm:mt-20">
+      <h2 className="sr-only">Contact</h2>
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-baseline sm:justify-between">
+        <Link
+          href={`mailto:${data.contact.email}`}
+          className="w-fit text-[clamp(1.35rem,3vw,2rem)] leading-none tracking-[-0.02em] underline decoration-muted-foreground/40 decoration-1 underline-offset-[6px] transition-colors hover:decoration-foreground"
+        >
+          {data.contact.email}
+        </Link>
 
-      {data.portfolio.contact.description ? (
-        <p className="mt-5 max-w-[40ch] text-[15px] leading-relaxed text-muted-foreground">
-          {data.portfolio.contact.description}
-        </p>
-      ) : null}
-
-      <Link
-        href={`mailto:${data.contact.email}`}
-        className="mt-8 inline-block text-[clamp(1.25rem,2.8vw,1.75rem)] leading-none tracking-[-0.02em] underline decoration-muted-foreground/40 decoration-1 underline-offset-[6px] transition-colors hover:decoration-foreground"
-      >
-        {data.contact.email}
-      </Link>
-
-      <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1">
-        {socials.map((social, index) => (
-          <span key={social.name} className="flex items-center gap-3">
-            {index > 0 ? (
-              <span aria-hidden className="text-border">
-                /
-              </span>
-            ) : null}
-            <Link
-              href={social.url}
-              target={isExternal(social.url) ? "_blank" : undefined}
-              rel={isExternal(social.url) ? "noopener noreferrer" : undefined}
-              className="mono-label text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
-            >
-              {social.name}
-            </Link>
-          </span>
-        ))}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          {socials.map((social, index) => (
+            <span key={social.name} className="flex items-center gap-3">
+              {index > 0 ? (
+                <span aria-hidden className="text-border">
+                  /
+                </span>
+              ) : null}
+              <Link
+                href={social.url}
+                target={isExternal(social.url) ? "_blank" : undefined}
+                rel={isExternal(social.url) ? "noopener noreferrer" : undefined}
+                className="mono-label text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+              >
+                {social.name}
+              </Link>
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

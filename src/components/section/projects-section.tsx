@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { ProjectRow } from "@/components/project-row";
 import { SectionHeading } from "@/components/section-heading";
 import { getPortfolioData } from "@/data/portfolio";
@@ -64,15 +64,23 @@ export default function ProjectsSection() {
         </div>
       ) : null}
 
-      <div className="mt-10">
-        <h3 className="text-[18px] font-medium tracking-[-0.02em]">
-          {data.portfolio.earlierProjects.title}
-        </h3>
+      <details className="group mt-10 border-t border-border/80 pt-4">
+        <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
+          <h3 className="text-[18px] font-medium tracking-[-0.02em]">
+            {data.portfolio.earlierProjects.title}
+          </h3>
+          <ChevronDown
+            aria-hidden
+            className="size-3.5 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
+          />
+        </summary>
+
         {data.portfolio.earlierProjects.description ? (
           <p className="mt-1 max-w-[52ch] text-[13px] leading-relaxed text-muted-foreground">
             {data.portfolio.earlierProjects.description}
           </p>
         ) : null}
+
         <div className="mt-4 grid gap-x-12 sm:grid-cols-2">
           {data.earlierProjects.map((project) => (
             <Link
@@ -95,7 +103,7 @@ export default function ProjectsSection() {
             </Link>
           ))}
         </div>
-      </div>
+      </details>
     </section>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import ContactSection from "@/components/section/contact-section";
 import ExperienceEducationSection from "@/components/section/experience-education-section";
 import ProjectsSection from "@/components/section/projects-section";
-import SkillsSection from "@/components/section/skills-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getPortfolioData } from "@/data/portfolio";
@@ -72,8 +71,6 @@ export default function PortfolioPage() {
         />
 
         <ProjectsSection />
-
-        <SkillsSection />
 
         <ContactSection />
       </main>

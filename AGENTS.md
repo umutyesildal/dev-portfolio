@@ -23,8 +23,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 
 1. Read the supplied CV or resume completely.
 2. Read `content/portfolio.yaml` and `src/data/schema.ts` before editing.
-3. Replace the example identity, contact details, experience, education, skills,
-   and projects with evidence from the supplied material.
+3. Replace the example identity, contact details, experience, education, and
+   projects with evidence from the supplied material.
 4. Prioritize recent, technically substantial work. Move older work to
    `earlierProjects` when it is still useful but should not dominate the page.
 5. Preserve measurable results exactly. Do not invent dates, metrics, employers,
@@ -46,9 +46,6 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 - Keep social names referenced by `home.featuredSocials`,
   `portfolio.headerSocials`, and `portfolio.contact.socials` synchronized with
   `contact.socials[].name`.
-- Use `skills[].group` to create readable headings such as `Frontend` or
-  `Data & backend`. Ungrouped skills fall back to a single `Skills` group. Keep
-  related skills adjacent; groups render in first-appearance order.
 - Use `work[].shortTitle` only as a shortened form of `work[].title` for the
   collapsed accordion row. It is optional and falls back to the full title. Do not
   use it to change the role.

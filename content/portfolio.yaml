@@ -64,11 +64,7 @@ portfolio:
     title: Open source
   earlierProjects:
     title: Earlier work
-  skills:
-    title: Stack
   contact:
-    title: Let's talk.
-    description: Email is the fastest way to reach you.
     socials: [GitHub, LinkedIn, Email]
 
 contact:
@@ -82,24 +78,6 @@ contact:
       url: https://example.com
     - name: Email
       url: mailto:hello@example.com
-
-skills:
-  - name: React
-    group: Frontend
-  - name: Next.js
-    group: Frontend
-  - name: TypeScript
-    group: Frontend
-  - name: Node.js
-    group: Backend
-  - name: Python
-    group: Backend
-  - name: PostgreSQL
-    group: Data
-  - name: Testing
-    group: Practices
-  - name: System Design
-    group: Practices
 
 work:
   - company: Example Company

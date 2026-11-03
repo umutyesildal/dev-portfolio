@@ -53,8 +53,7 @@ portfolio:
   metadataDescription: Experience, projects, and skills from Umut Yunus Yesildal.
   headline: Applied AI, data systems, and automation.
   intro: >-
-    Automation and data engineer at Trade Republic, where I build n8n infrastructure
-    for product operations. Currently an M.Sc. at Humboldt-Universität, researching
+    Product Operations at Trade Republic. M.Sc. at Humboldt-Universität, researching
     multilingual language models.
   headerSocials: [GitHub, LinkedIn]
   experience:
@@ -67,10 +66,7 @@ portfolio:
     title: Open source
   earlierProjects:
     title: Earlier work
-  skills:
-    title: Stack
   contact:
-    title: Let's talk.
     socials: [GitHub, LinkedIn]
 
 contact:
@@ -86,46 +82,6 @@ contact:
       url: https://yesildal.me
     - name: Email
       url: mailto:umut@yesildal.me
-
-skills:
-  - name: n8n
-    group: Automation & workflows
-  - name: Make.com
-    group: Automation & workflows
-  - name: Selenium
-    group: Automation & workflows
-  - name: CI/CD
-    group: Automation & workflows
-  - name: PM4Py
-    group: Automation & workflows
-  - name: Python
-    group: Data & backend
-  - name: TypeScript
-    group: Data & backend
-  - name: SQL
-    group: Data & backend
-  - name: Rust
-    group: Data & backend
-  - name: PostgreSQL
-    group: Data & backend
-  - name: Docker
-    group: Data & backend
-  - name: REST APIs
-    group: Integration & AI
-  - name: OpenAI API
-    group: Integration & AI
-  - name: Notion API
-    group: Integration & AI
-  - name: React
-    group: Product engineering
-  - name: Next.js
-    group: Product engineering
-  - name: Node.js
-    group: Product engineering
-  - name: React Native
-    group: Product engineering
-  - name: Flutter
-    group: Product engineering
 
 work:
   - company: Trade Republic
@@ -187,18 +143,6 @@ education:
     end: "2022"
 
 projects:
-  - title: VendorProof
-    url: https://github.com/umutyesildal/vendorproof
-    date: Hackathon · 2026
-    metric: n8n winner
-    description: >-
-      AI vendor due diligence where every claim must cite real evidence. Built in n8n with Nebius
-      Token Factory and Tavily; won **Best use of n8n** at Nebius Build Week with NVIDIA 2026.
-    technologies: [n8n, Nebius, Tavily, AI Agents]
-    links:
-      - label: GitHub
-        url: https://github.com/umutyesildal/vendorproof
-    image: ""
   - title: On-Chain Market Intelligence & Signal Automation
     url: ""
     date: 2023–2025
@@ -218,28 +162,6 @@ projects:
     technologies: [Python, PostgreSQL, Docker, ETL]
     links: []
     image: ""
-  - title: Gender Bias Mitigation in LLMs
-    url: https://github.com/umutyesildal/GenderBiasReport
-    date: Research Project · 2025
-    metric: 84.1%
-    description: >-
-      Compared four prompting strategies for reducing gender bias in LLM-generated educational text
-      across **300 trials**.
-    technologies: [Python, LLM Evaluation, AI Fairness, Statistical Analysis]
-    links:
-      - label: GitHub
-        url: https://github.com/umutyesildal/GenderBiasReport
-    image: ""
-  - title: Annotation Error Detection for NLP
-    url: ""
-    date: "2025"
-    metric: 0.2756 AP
-    description: >-
-      Compared five annotation-error methods with 15 LLM approaches across five models. The best beat
-      the baseline by roughly 20%.
-    technologies: [Python, NLP, LLM Evaluation, Research]
-    links: []
-    image: ""
   - title: Multilingual Factual Knowledge Transfer
     url: ""
     date: M.Sc. Thesis · 2026
@@ -257,6 +179,18 @@ projects:
       datasets.
     technologies: [Python, PM4Py, XES, Testing]
     links: []
+    image: ""
+  - title: VendorProof
+    url: https://github.com/umutyesildal/vendorproof
+    date: Hackathon · 2026
+    metric: n8n winner
+    description: >-
+      AI vendor due diligence where every claim must cite real evidence. Built in n8n with Nebius
+      Token Factory and Tavily; won **Best use of n8n** at Nebius Build Week with NVIDIA 2026.
+    technologies: [n8n, Nebius, Tavily, AI Agents]
+    links:
+      - label: GitHub
+        url: https://github.com/umutyesildal/vendorproof
     image: ""
   - title: yesildal.me Portfolio
     url: https://github.com/umutyesildal/dev-portfolio
