@@ -113,6 +113,7 @@ export const portfolioSchema = z
         title: text,
         description: optionalText,
       }),
+      openSource: sectionCopySchema,
       earlierProjects: sectionCopySchema,
       skills: sectionCopySchema,
       contact: sectionCopySchema.extend({
@@ -168,6 +169,16 @@ export const portfolioSchema = z
         image: optionalAsset,
       })
     ),
+    openSource: z
+      .array(
+        z.object({
+          title: text,
+          description: text,
+          url: urlText,
+          date: text,
+        })
+      )
+      .default([]),
     earlierProjects: z.array(
       z.object({
         title: text,

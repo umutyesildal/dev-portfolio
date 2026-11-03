@@ -58,6 +58,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
   extrapolate, or embellish a metric.
 - `projects[].image` is optional and expects a root-relative screenshot in
   `public/`, roughly 16:9. Leave it empty when no suitable image exists.
+- `openSource` is a separate list for current open-source repositories. It renders
+  only when non-empty; do not duplicate entries that already appear in `projects`.
 - Keep project links public and safe to expose.
 - Do not place secrets, private repository URLs, API keys, phone numbers, or private
   addresses in the template unless the user explicitly requests publication.

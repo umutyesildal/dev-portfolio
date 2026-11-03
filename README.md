@@ -160,6 +160,8 @@ Every name in `home.featuredSocials` must match a `contact.socials[].name`.
 | `portfolio.education.description` | No | Optional section intro. |
 | `portfolio.projects.title` | Yes | Projects section heading. |
 | `portfolio.projects.description` | No | Optional section intro. |
+| `portfolio.openSource.title` | Yes | Open-source section heading. Hidden when the list is empty. |
+| `portfolio.openSource.description` | No | Optional open-source section intro. |
 | `portfolio.earlierProjects.title` | Yes | Earlier-work section heading. |
 | `portfolio.earlierProjects.description` | No | Optional section intro. |
 | `portfolio.skills.title` | Yes | Skills section heading. |
@@ -232,6 +234,17 @@ The pair `company` + `title` must be unique.
 
 Quote numeric-looking dates (`"2025"`) so YAML keeps them as strings. The schema
 expects text.
+
+### `openSource`
+
+| Key | Required | Description |
+| --- | --- | --- |
+| `openSource[].title` | Yes | Repository or project name. |
+| `openSource[].description` | Yes | One-line description of what it does. |
+| `openSource[].url` | Yes | Repository URL. |
+| `openSource[].date` | Yes | Display year as a string. |
+
+The block is hidden when `openSource` is empty.
 
 ### `earlierProjects`
 

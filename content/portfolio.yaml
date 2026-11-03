@@ -60,6 +60,8 @@ portfolio:
     title: Education
   projects:
     title: Selected work
+  openSource:
+    title: Open source
   earlierProjects:
     title: Earlier work
   skills:
@@ -152,6 +154,12 @@ projects:
     technologies: [Python, Data Engineering, APIs]
     links: []
     image: ""
+
+openSource:
+  - title: Open source project
+    description: A short description of what it does and why it matters.
+    url: https://github.com/your-username/open-source-project
+    date: "2025"
 
 earlierProjects:
   - title: Early Project

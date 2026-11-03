@@ -63,6 +63,8 @@ portfolio:
     title: Education
   projects:
     title: Selected work
+  openSource:
+    title: Open source
   earlierProjects:
     title: Earlier work
   skills:
@@ -129,16 +131,16 @@ work:
   - company: Trade Republic
     url: https://www.traderepublic.com/
     location: Berlin
-    title: Process & Automation Engineering WS (Product Operations)
-    shortTitle: Process & Automation Engineer
+    title: Product Operations
+    shortTitle: Product Operations
     start: Jan 2026
     end: Present
     description: Develop and maintain n8n infrastructure and workflows for internal operations and cross-team communication. Troubleshoot automation failures with partner teams, translate operational requirements into maintainable workflows, and support teams during implementation.
   - company: Project A
     url: https://www.project-a.com/
     location: Berlin
-    title: Process & Automation Engineering WS (Talent & RecOps)
-    shortTitle: Process & Automation Engineer
+    title: Recruitment Operations (Automation & AI) WS
+    shortTitle: Recruitment Operations (Automation & AI)
     start: Mar 2024
     end: Sep 2025
     description: Owned technical delivery for automation and data-flow initiatives in a 20-person recruiting team. Built n8n and Make.com workflows for candidate data, KPIs, and referral payments; Node.js pipelines across 100+ job sites; and Notion-backed recruiting workflows and dashboards.
@@ -185,6 +187,18 @@ education:
     end: "2022"
 
 projects:
+  - title: VendorProof
+    url: https://github.com/umutyesildal/vendorproof
+    date: Hackathon · 2026
+    metric: n8n winner
+    description: >-
+      AI vendor due diligence where every claim must cite real evidence. Built in n8n with Nebius
+      Token Factory and Tavily; won **Best use of n8n** at Nebius Build Week 2026.
+    technologies: [n8n, Nebius, Tavily, AI Agents]
+    links:
+      - label: GitHub
+        url: https://github.com/umutyesildal/vendorproof
+    image: ""
   - title: On-Chain Market Intelligence & Signal Automation
     url: ""
     date: 2023–2025
@@ -254,6 +268,20 @@ projects:
       - label: GitHub
         url: https://github.com/umutyesildal/dev-portfolio
     image: ""
+
+openSource:
+  - title: berlin-job-search
+    description: AI job-search coach for Germany. Works in Claude Code, Codex, Cursor, and OpenCode.
+    url: https://github.com/umutyesildal/berlin-job-search
+    date: "2026"
+  - title: daily-berlin-jobs
+    description: Open-source Berlin engineering job board with a Python crawler and Next.js frontend.
+    url: https://github.com/umutyesildal/daily-berlin-jobs
+    date: "2026"
+  - title: basalt
+    description: Stock baskets on Solana. Road to Colosseum Germany ideathon winner.
+    url: https://github.com/umutyesildal/basalt
+    date: "2026"
 
 earlierProjects:
   - title: Mercedes Assistify
