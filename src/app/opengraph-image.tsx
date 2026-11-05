@@ -27,6 +27,7 @@ function getAvatarDataUrl() {
     ".png": "image/png",
     ".svg": "image/svg+xml",
     ".webp": "image/webp",
+    ".avif": "image/avif",
   };
   const mimeType =
     mimeTypes[path.extname(avatarPath).toLowerCase()] ?? "image/jpeg";
@@ -45,48 +46,20 @@ export default function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          padding: 42,
-          position: "relative",
-          overflow: "hidden",
+          padding: 48,
           backgroundColor: colors.background,
-          fontFamily: "Arial, sans-serif",
+          fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            width: 470,
-            height: 470,
-            borderRadius: 999,
-            top: -250,
-            left: -130,
-            backgroundColor: colors.accent,
-            opacity: 0.38,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            width: 420,
-            height: 420,
-            borderRadius: 999,
-            right: -170,
-            bottom: -240,
-            backgroundColor: colors.secondaryAccent,
-            opacity: 0.42,
-          }}
-        />
-
         <div
           style={{
             width: "100%",
             height: "100%",
             display: "flex",
             alignItems: "stretch",
-            position: "relative",
-            padding: 52,
+            padding: 56,
             border: `1px solid ${colors.border}`,
-            borderRadius: 28,
+            borderRadius: 24,
             backgroundColor: colors.card,
           }}
         >
@@ -96,19 +69,28 @@ export default function Image() {
               flexDirection: "column",
               flex: 1,
               justifyContent: "space-between",
-              paddingRight: 48,
+              paddingRight: 52,
             }}
           >
             <div
               style={{
                 display: "flex",
-                fontSize: 20,
-                fontWeight: 700,
+                alignItems: "center",
+                fontSize: 18,
                 letterSpacing: "0.16em",
                 textTransform: "uppercase",
                 color: colors.mutedText,
               }}
             >
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  marginRight: 12,
+                  borderRadius: 999,
+                  backgroundColor: colors.accent,
+                }}
+              />
               {preview.eyebrow}
             </div>
 
@@ -116,12 +98,12 @@ export default function Image() {
               <div
                 style={{
                   display: "flex",
-                  maxWidth: 730,
-                  marginBottom: 22,
-                  fontSize: 68,
-                  fontWeight: 700,
-                  lineHeight: 1.02,
-                  letterSpacing: "-0.045em",
+                  maxWidth: 700,
+                  marginBottom: 20,
+                  fontSize: 66,
+                  fontWeight: 600,
+                  lineHeight: 1,
+                  letterSpacing: "-0.04em",
                   color: colors.text,
                 }}
               >
@@ -130,9 +112,9 @@ export default function Image() {
               <div
                 style={{
                   display: "flex",
-                  maxWidth: 720,
-                  fontSize: 25,
-                  lineHeight: 1.38,
+                  maxWidth: 660,
+                  fontSize: 24,
+                  lineHeight: 1.4,
                   color: colors.mutedText,
                 }}
               >
@@ -144,27 +126,25 @@ export default function Image() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                fontSize: 20,
-                fontWeight: 600,
+                justifyContent: "space-between",
+                paddingTop: 20,
+                borderTop: `1px solid ${colors.border}`,
+                fontSize: 17,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
                 color: colors.text,
               }}
             >
-              <span
-                style={{
-                  width: 11,
-                  height: 11,
-                  marginRight: 12,
-                  borderRadius: 999,
-                  backgroundColor: colors.accent,
-                }}
-              />
-              {preview.footer}
+              <span>{preview.footer}</span>
+              <span style={{ color: colors.mutedText }}>
+                {data.site.location}
+              </span>
             </div>
           </div>
 
           <div
             style={{
-              width: 272,
+              width: 264,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -173,9 +153,9 @@ export default function Image() {
             <div
               style={{
                 display: "flex",
-                padding: 12,
+                padding: 10,
                 border: `1px solid ${colors.border}`,
-                borderRadius: 42,
+                borderRadius: 26,
                 backgroundColor: colors.background,
               }}
             >
@@ -187,7 +167,7 @@ export default function Image() {
                 style={{
                   width: 232,
                   height: 232,
-                  borderRadius: 32,
+                  borderRadius: 18,
                   objectFit: "cover",
                 }}
               />

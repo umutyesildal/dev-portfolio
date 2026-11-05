@@ -1,35 +1,41 @@
 import Link from "next/link";
-import { Home } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { getPortfolioData } from "@/data/portfolio";
 
 export default function NotFound() {
-    const { notFound } = getPortfolioData();
+  const { notFound } = getPortfolioData();
 
-    return (
-        <div className="min-h-[calc(100vh-12rem)] flex flex-col">
-            <div className="flex-1 flex items-center justify-center p-8">
-                <div className="flex flex-col items-center text-center max-w-md relative">
-                    <h1 className="text-[200px] font-semibold font-mono bg-linear-to-b from-primary/30 to-secondary/10 text-transparent bg-clip-text absolute -top-40 left-1/2 -translate-x-1/2 mask-[linear-gradient(to_bottom,black,black_20%,transparent_80%)] tracking-tighter uppercase [-webkit-text-stroke:3px_hsl(var(--primary)/0.6)]">
-                        {notFound.code}
-                    </h1>
-                    <h2 className="text-4xl tracking-tight font-semibold text-foreground mb-2">
-                        {notFound.title}
-                    </h2>
-                    <p className="text-muted-foreground mb-8 text-balance tracking-tight font-medium">
-                        {notFound.description}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                        <Link href={notFound.cta.href}>
-                            <Button variant="outline" className="gap-2 cursor-pointer">
-                                <Home className="h-4 w-4" />
-                                {notFound.cta.label}
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <>
+      <SiteHeader />
+
+      <main
+        id="content"
+        tabIndex={-1}
+        className="flex flex-1 flex-col justify-center py-20 sm:py-28"
+      >
+        <p className="mono-label text-muted-foreground">{notFound.code}</p>
+        <h1 className="mt-4 max-w-[16ch] text-[clamp(2.25rem,5vw,3.5rem)] font-medium leading-[1.02] tracking-[-0.035em]">
+          {notFound.title}
+        </h1>
+        <p className="mt-4 max-w-[46ch] text-[15px] leading-relaxed text-muted-foreground">
+          {notFound.description}
+        </p>
+        <Link
+          href={notFound.cta.href}
+          className="group mt-8 inline-flex h-11 w-fit items-center gap-2 rounded-md bg-foreground px-5 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+        >
+          <ArrowLeft
+            aria-hidden
+            className="size-4 transition-transform duration-150 ease-out group-hover:-translate-x-0.5"
+          />
+          {notFound.cta.label}
+        </Link>
+      </main>
+
+      <SiteFooter />
+    </>
+  );
 }
