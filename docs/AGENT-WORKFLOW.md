@@ -11,6 +11,16 @@ site layout.
 - `sources/notes.md` for target roles and anything missing
 - `AGENTS.md`, `src/data/schema.ts`, and `skills/portfolio-builder/SKILL.md`
 
+## Install as a skill
+
+If your agent supports skills.sh:
+
+```bash
+npx skills add umutyesildal/dev-portfolio
+```
+
+This installs `portfolio-builder`. The repository stays the source of truth.
+
 ## Prompts
 
 **Claude Code, Codex, Cursor, OpenCode**

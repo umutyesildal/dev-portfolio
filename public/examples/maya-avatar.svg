@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960" role="img" aria-label="Monogram for Maya Chen">
+  <rect width="960" height="960" fill="#EDE8D8" />
+  <circle cx="480" cy="480" r="330" fill="#B9E06C" />
+  <circle cx="480" cy="480" r="330" fill="none" stroke="#212214" stroke-opacity="0.12" stroke-width="2" />
+  <text
+    x="480"
+    y="585"
+    text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="300"
+    font-weight="500"
+    letter-spacing="-18"
+    fill="#212214"
+  >MC</text>
+  <text
+    x="480"
+    y="690"
+    text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="26"
+    letter-spacing="8"
+    fill="#212214"
+    fill-opacity="0.55"
+  >PRODUCT DESIGNER</text>
+</svg>

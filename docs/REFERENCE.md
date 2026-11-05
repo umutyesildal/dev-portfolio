@@ -215,6 +215,15 @@ template and the example profile.
 portrait are personal and are **not** MIT licensed. See
 [`examples/LICENSE`](../examples/LICENSE).
 
+`examples/sample-designer.yaml` is a fictional designer profile. It is covered
+by the MIT license; "Maya Chen" is not a real person.
+
+```bash
+PORTFOLIO_CONTENT_FILE=examples/sample-designer.yaml pnpm dev
+```
+
+Live sample: [dev-portfolio-designer.vercel.app](https://dev-portfolio-designer.vercel.app).
+
 ## Project structure
 
 ```text

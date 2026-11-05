@@ -1,16 +1,33 @@
 Copyright (c) 2026 Umut Yunus Yesildal. All rights reserved.
 
-The file examples/umut-portfolio.yaml and the contents of public/examples/,
-including portrait images and any other personal assets, contain personal
-content, personal information, and likeness.
+## Personal content
 
-These files are NOT covered by the repository's MIT license in ../LICENSE.
+The following files contain personal content, personal information, and
+likeness:
 
-You may not copy, redistribute, publish, or reuse this content, in whole or in
-part, including any name, biography, employment history, project descriptions,
-contact details, or portrait and likeness, without prior written permission
-from the copyright holder.
+- `examples/umut-portfolio.yaml`
+- `public/examples/umut-portrait.jpg`
+- screenshots in `docs/` that show this personal profile
 
-The MIT license applies only to the template code and to the demo content in
-content/portfolio.yaml. It does not apply to this directory, to public/examples/,
-or to the screenshots in docs/ that show this example profile.
+These files are NOT covered by the repository's MIT license. You may not copy,
+redistribute, publish, or reuse this content, in whole or in part, including any
+name, biography, employment history, project descriptions, contact details, or
+portrait and likeness, without prior written permission from the copyright
+holder.
+
+## Fictional sample content
+
+The following files are fictional sample content created for the template:
+
+- `examples/sample-designer.yaml`
+- `public/examples/maya-avatar.svg`
+- `docs/sample-home.png` and `docs/sample-portfolio.png`
+
+They are covered by the repository's MIT license. "Maya Chen" is not a real
+person; companies, schools, projects, and metrics in that profile are fictional.
+
+## MIT scope
+
+The MIT license applies to the template code, to the demo content in
+`content/portfolio.yaml`, and to the fictional sample content above. It does not
+apply to the personal content listed in the first section.

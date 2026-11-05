@@ -1,0 +1,167 @@
+site:
+  name: Maya Chen
+  initials: MC
+  language: en
+  locale: en_US
+  url: https://dev-portfolio-designer.vercel.app
+  repository: ""
+  location: Amsterdam, Netherlands
+  locationUrl: https://www.google.com/maps/place/Amsterdam
+  description: Product designer building calm interfaces for complex, data-heavy tools.
+  avatar: /examples/maya-avatar.svg
+
+socialPreview:
+  title: Maya Chen
+  description: Product designer building calm interfaces for complex, data-heavy tools.
+  eyebrow: Product Designer · Systems · Interfaces
+  footer: dev-portfolio-designer.vercel.app
+  imageAlt: Social preview for Maya Chen's portfolio
+  avatar: /examples/maya-avatar.svg
+  colors:
+    background: "#FAF8EF"
+    card: "#FDFCF7"
+    text: "#212214"
+    mutedText: "#59594A"
+    border: "#E2DDCE"
+    accent: "#B9E06C"
+    secondaryAccent: "#FFD4A3"
+
+navigation:
+  - label: Home
+    href: /
+  - label: Portfolio
+    href: /portfolio
+
+home:
+  eyebrow: Product Designer · Systems · Interfaces
+  headline: I design calm interfaces for complex tools.
+  subheadline: Currently designing data products at Northwind. Previously at Fieldnote and Studio K. Based in Amsterdam.
+  featuredSocials: [LinkedIn, Email]
+  portfolioCta:
+    label: View work
+    href: /portfolio
+
+notFound:
+  code: "404"
+  title: Page Not Found
+  description: The page you're looking for doesn't exist or may have been moved.
+  cta:
+    label: Go to Home
+    href: /
+
+portfolio:
+  metadataTitle: Work
+  metadataDescription: Product design work from Maya Chen.
+  headline: Product design for complex, data-heavy tools.
+  intro: I turn dense workflows into interfaces people can read at a glance. Ten years across design systems, data products, and research.
+  headerSocials: [LinkedIn]
+  experience:
+    title: Experience
+  education:
+    title: Education
+  projects:
+    title: Selected work
+  openSource:
+    title: Open source
+  earlierProjects:
+    title: Earlier work
+  contact:
+    socials: [LinkedIn, Email]
+
+contact:
+  email: maya@maya.design
+  socials:
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/mayachen
+    - name: Website
+      url: https://maya.design
+    - name: Email
+      url: mailto:maya@maya.design
+
+work:
+  - company: Northwind
+    url: https://northwind.design
+    location: Amsterdam
+    title: Senior Product Designer
+    shortTitle: Senior Product Designer
+    start: "2023"
+    end: Present
+    description: Lead designer for a data observability suite. Rebuilt the incident workflow, cut time-to-acknowledge by 38%, and shipped a design system used by four product teams.
+  - company: Fieldnote
+    url: https://fieldnote.design
+    location: Berlin
+    title: Product Designer
+    shortTitle: Product Designer
+    start: "2020"
+    end: "2023"
+    description: Designed the mobile field-research app from first prototype to launch. Ran 40+ interviews, rebuilt onboarding, and lifted week-one retention by 22%.
+  - company: Studio K
+    url: https://studiok.design
+    location: Amsterdam
+    title: Interaction Designer
+    shortTitle: Interaction Designer
+    start: "2018"
+    end: "2020"
+    description: Designed identity and interface work for cultural clients. Built the studio's reusable design system and shipped six public-facing sites.
+
+education:
+  - school: Northlight Design School
+    url: https://northlight.design
+    degree: MA Interaction Design
+    start: "2016"
+    end: "2018"
+    coursework:
+      - Interface Systems
+      - Research Methods
+      - Data Visualization
+  - school: Canal University
+    url: https://canal.university
+    degree: BSc Media Studies
+    start: "2012"
+    end: "2016"
+    coursework: []
+
+projects:
+  - title: Incident Console
+    url: https://maya.design/work/incident-console
+    date: "2025"
+    metric: 38% faster
+    description: Redesigned incident triage for a data observability suite. Collapsed five screens into one timeline, added severity cues, and cut time-to-acknowledge by 38%.
+    technologies: [Product Design, Design Systems, Research]
+    links: []
+    image: ""
+  - title: Atlas Design System
+    url: https://maya.design/work/atlas
+    date: "2024"
+    metric: 4 teams
+    description: Built a token-driven design system for four product teams. Shipped 60 components, documented accessibility rules, and reduced new-screen build time from days to hours.
+    technologies: [Design Systems, Figma, Accessibility]
+    links: []
+    image: ""
+  - title: Signal Onboarding
+    url: https://maya.design/work/signal
+    date: "2023"
+    metric: 22% lift
+    description: Reworked onboarding for a mobile research app across 40 interviews. A shorter first-run flow lifted week-one retention by 22%.
+    technologies: [Mobile, Onboarding, Research]
+    links: []
+    image: ""
+  - title: Fieldnote Mobile
+    url: https://maya.design/work/fieldnote
+    date: "2021"
+    description: Designed the first mobile client for Fieldnote, from prototype to App Store launch. Focused on offline capture, fast sync, and readable field notes.
+    technologies: [Mobile, Prototyping, UX]
+    links: []
+    image: ""
+
+openSource: []
+
+earlierProjects:
+  - title: Studio K Identity
+    url: https://maya.design/work/studio-k
+    date: "2019"
+    technologies: [Brand, Art Direction]
+  - title: Canal Radio
+    url: https://maya.design/work/canal-radio
+    date: "2017"
+    technologies: [Editorial, Web Design]
