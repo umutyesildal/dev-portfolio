@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #faf8ef;
+        --paper: #fdfcf7;
+        --ink: #212214;
+        --muted: #59594a;
+        --border: #e2ddce;
+        --lime: #b9e06c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1600px;
+        height: 900px;
+        overflow: hidden;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont,
+          "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .canvas {
+        position: relative;
+        display: flex;
+        width: 1600px;
+        height: 900px;
+        padding: 90px;
+        gap: 60px;
+        background:
+          radial-gradient(900px 520px at 8% -10%, rgba(185, 224, 108, 0.2), transparent 62%),
+          radial-gradient(760px 420px at 100% 108%, rgba(255, 212, 163, 0.16), transparent 64%),
+          var(--cream);
+      }
+
+      .left {
+        width: 620px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 34px;
+        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .brand .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--lime);
+        box-shadow: 0 0 0 1px rgba(33, 34, 20, 0.12);
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 620px;
+        font-size: 74px;
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+        font-weight: 500;
+        text-wrap: balance;
+      }
+
+      h1 .mark {
+        background: linear-gradient(transparent 76%, var(--lime) 76%);
+        padding: 0 4px 2px 0;
+      }
+
+      .sub {
+        margin: 30px 0 0;
+        max-width: 500px;
+        font-size: 23px;
+        line-height: 1.45;
+        letter-spacing: -0.015em;
+        color: var(--muted);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 34px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        height: 31px;
+        padding: 0 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(253, 252, 247, 0.7);
+        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .foot {
+        margin-top: 44px;
+        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+      }
+
+      .right {
+        width: 740px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .browser {
+        width: 740px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--paper);
+        overflow: hidden;
+        box-shadow: 0 36px 80px -52px rgba(33, 34, 20, 0.55);
+      }
+
+      .bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        height: 38px;
+        padding: 0 14px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .bar .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--border);
+      }
+
+      .bar .url {
+        margin-left: 10px;
+        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 10px;
+        letter-spacing: 0.02em;
+        color: var(--muted);
+      }
+
+      .browser img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .caption {
+        margin-top: 18px;
+        font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="left">
+        <div class="brand"><span class="dot"></span> dev-portfolio</div>
+        <h1>Your agent builds your <span class="mark">portfolio.</span></h1>
+        <p class="sub">
+          CV, LinkedIn, and GitHub in.<br />
+          A minimal personal site out.
+        </p>
+        <div class="chips">
+          <span class="chip">One YAML</span>
+          <span class="chip">Next.js 16</span>
+          <span class="chip">Agent-ready</span>
+        </div>
+        <div class="foot">github.com/umutyesildal/dev-portfolio</div>
+      </div>
+
+      <div class="right">
+        <div class="browser">
+          <div class="bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">dev-portfolio-designer.vercel.app</span>
+          </div>
+          <img src="sample-home.png" alt="Sample portfolio" />
+        </div>
+        <div class="caption">Sample profile · Maya Chen</div>
+      </div>
+    </div>
+  </body>
+</html>
