@@ -1,7 +1,8 @@
 # Agent-ready YAML portfolio
 
-A minimal Next.js portfolio template where one YAML file holds all portfolio
-content, and the React layer stays presentation-only.
+A minimal Next.js personal site where one YAML file holds all content, and the
+React layer stays presentation-only. Your coding agent can build that YAML from
+your CV, LinkedIn, and GitHub.
 
 **Demo:** [dev-portfolio-delta-drab.vercel.app](https://dev-portfolio-delta-drab.vercel.app) ·
 **Live example:** [yesildal.me](https://yesildal.me) ·
@@ -29,6 +30,7 @@ Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
   a generated 1200×630 social card, `sitemap.xml`, and `robots.txt`.
 - Accessibility defaults: skip link, visible focus rings, semantic landmarks,
   labelled navigation, and decorative icons hidden from assistive tech.
+- Build the YAML from a CV, LinkedIn export, and GitHub data with a coding agent.
 - One codebase, multiple profiles through `PORTFOLIO_CONTENT_FILE`.
 - shadcn/ui new-york primitives (Accordion, Button, Badge) and lucide icons.
 
@@ -39,8 +41,11 @@ Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
 - `/api/portfolio.json` exposes the validated content as JSON.
 - `/api/schema.json` exposes the Zod schema as JSON Schema.
 - `/agents.json` describes the content source, schema, endpoints, and update command.
-- `AGENTS.md` and `content/README.md` define the edit protocol.
+- `AGENTS.md`, `content/README.md`, and `skills/portfolio-builder/SKILL.md`
+  define the edit protocol.
 - `pnpm content:check` validates the YAML, references, and local assets.
+- `pnpm profile:github` imports public GitHub data; `pnpm profile:check` blocks
+  placeholders, missing assets, and example links.
 
 ## Screenshots
 
@@ -49,6 +54,8 @@ Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
 | ![Home page](docs/home.png) | ![Portfolio page](docs/portfolio.png) |
 
 ![Mobile layout](docs/mobile.jpg)
+
+15-second demo storyboard: [`docs/demo.md`](docs/demo.md).
 
 ## Quick start
 
@@ -61,6 +68,39 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Build from your CV, LinkedIn, and GitHub
+
+1. Put your material in `sources/`:
+   - `cv.pdf` or `cv.docx`
+   - `linkedin.pdf` (LinkedIn → More → Save to PDF) or `linkedin.html`
+   - `notes.md` for target roles and anything missing
+2. Pull your public GitHub data:
+
+```bash
+pnpm profile:github your-username
+```
+
+3. Open your coding agent and say:
+
+```text
+Build my portfolio from sources/. Follow AGENTS.md and
+skills/portfolio-builder/SKILL.md. Use only facts present in the sources,
+and ask me for anything missing.
+```
+
+4. Validate and build:
+
+```bash
+pnpm profile:check
+pnpm build
+```
+
+`sources/` is git-ignored. `profile:check` fails on placeholder text, missing
+assets, and `example.com` links. `content:check` only validates the schema and
+assets, so it can run on the template demo.
+
+LinkedIn blocks direct scraping. Use the official PDF export or a saved HTML copy.
 
 ## Customize
 
@@ -78,6 +118,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 pnpm content:check
+pnpm profile:check
 pnpm lint
 pnpm typecheck
 pnpm build
@@ -86,17 +127,10 @@ pnpm audit
 
 ### Customize with an AI coding agent
 
-`AGENTS.md` contains the content-mapping rules, safety boundaries, commands, and
-definition of done for this template. Attach a CV and use a prompt like:
-
-```text
-Customize this portfolio from my attached CV. Follow AGENTS.md, put all personal
-content in content/portfolio.yaml, copy approved images into public/, do not
-invent facts or links, and finish by running pnpm lint, pnpm typecheck, and
-pnpm build.
-```
-
-See [agents.md](https://agents.md/) for the open instruction-file format.
+The source workflow above is the intended path. `AGENTS.md` is the canonical
+instruction file; `skills/portfolio-builder/SKILL.md` packages the same workflow
+for Claude Code, Codex, Cursor, OpenCode, and other agents. See
+[agents.md](https://agents.md/) for the open instruction-file format.
 
 ## YAML reference
 
@@ -313,6 +347,7 @@ portrait are personal and are **not** MIT licensed. See
 ```text
 content/portfolio.yaml          Demo content, replace this
 content/README.md               Content workflow for humans and agents
+sources/                        CV, LinkedIn export, GitHub data (git-ignored)
 examples/
   umut-portfolio.yaml           Full example profile (not MIT)
   LICENSE                       Terms for the example content
@@ -347,7 +382,12 @@ src/
     content-markdown.ts         Markdown and llms.txt builders
     utils.ts
 scripts/
-  check-content.ts              YAML and asset checker
+  import-github.ts              GitHub profile importer
+  check-content.ts              Schema and asset checker
+  check-profile.ts              Placeholder and asset checker
+  lib/content.ts                Shared content loader
+skills/
+  portfolio-builder/SKILL.md    Agent skill for the source workflow
 AGENTS.md                       Instructions for coding agents
 SECURITY.md                     Vulnerability reporting policy
 THIRD_PARTY_NOTICES.md          Upstream licenses
