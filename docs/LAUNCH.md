@@ -19,8 +19,11 @@ Submit at <https://vercel.com/templates/submit>.
 | License | MIT |
 | Environment | None required. `PORTFOLIO_CONTENT_FILE` is optional for multiple profiles. |
 
-Thumbnail: `docs/template-thumbnail.png` — 1600×630, 2.54:1, 163 KB.
+Thumbnail: `docs/template-thumbnail.png` — 1600×630, 2.54:1, 155 KB.
 Source: `docs/template-thumbnail.html` (rendered at 1600×900, cropped to 630).
+
+The committed thumbnail is metadata-free (no EXIF or ICC chunks). If you
+re-render it, strip metadata before uploading.
 
 Screenshots:
 
