@@ -119,8 +119,9 @@ Every field is documented in [docs/REFERENCE.md](docs/REFERENCE.md).
   skill for the source workflow.
 - [Showcase](docs/SHOWCASE.md): the personal site and a fictional designer
   profile.
-- [Launch kit](docs/LAUNCH.md): Vercel Templates, Product Hunt, Show HN, and X
-  copy.
+- [Launch kit](docs/LAUNCH.md): Vercel Templates, Product Hunt, and Show HN.
+- [Handoff](docs/HANDOFF.md): copy-paste launch instructions for a friend or
+  agent. No LinkedIn or Twitter.
 - [Changelog](CHANGELOG.md).
 - [15-second demo storyboard](docs/demo.md).
 - [Roadmap](docs/ROADMAP.md): what is shipped and what comes next.

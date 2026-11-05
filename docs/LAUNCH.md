@@ -3,6 +3,9 @@
 Status: submitted to Vercel Templates on 2026-11-05. Review is manual and can
 take several days.
 
+LinkedIn and Twitter are intentionally out of scope. The step-by-step execution
+copy for a friend or agent is in [`docs/HANDOFF.md`](HANDOFF.md).
+
 ## Assets
 
 - Thumbnail: `docs/template-thumbnail.png` (1600×630, metadata-free)
@@ -20,7 +23,7 @@ take several days.
 
 - Tag `v1.0.0`.
 - Open the Product Hunt draft, add gallery assets, first comment, and topics.
-- Prepare the Show HN post and the X thread.
+- Prepare the Show HN post and the Reddit copy.
 - Send the newsletter submissions.
 - Open the awesome-list PR.
 
@@ -28,15 +31,23 @@ take several days.
 
 - 00:01 PT: Product Hunt goes live.
 - 08:00 ET (14:00 CET): Show HN.
-- 09:00 ET: X thread and LinkedIn post.
-- 10:00 ET: Reddit posts, one per community, with a tailored body.
+- 10:00 ET (16:00 CET): r/SideProject.
 - Reply to every comment for the rest of the day.
 
 **Day +1**
 
 - Vercel Community Showcase post.
+- Newsletters.
+- r/coolgithubprojects or r/opensource.
 - Direct outreach to 5 developers.
-- Reply to newsletter editors and PR reviewers.
+
+**Saturday**
+
+- r/webdev, Showoff Saturday only.
+
+**Weekly thread**
+
+- r/nextjs, pinned Weekly Showoff Thread only.
 
 ## Vercel Community Showcase
 
@@ -99,46 +110,19 @@ First comment:
 > LinkedIn uses the official PDF export rather than scraping. The demo and the
 > source are in the repo.
 
-## X thread
-
-1. I made my portfolio agent-readable: `/llms.txt`, `/portfolio.md`,
-   `/api/schema.json`, `/agents.json`.
-2. One YAML file drives the whole site. Drop your CV, LinkedIn export, and GitHub
-   into `sources/`; your coding agent writes the YAML.
-3. `profile:check` blocks placeholders and missing assets before deploy.
-4. It is a public template with a 15s demo:
-   https://github.com/umutyesildal/dev-portfolio
-
-## LinkedIn
-
-> I turned my portfolio into a source-first template: CV, LinkedIn, and GitHub
-> in, one YAML file out. The site is still a minimal personal site, not a
-> dashboard.
->
-> Demo: https://dev-portfolio-delta-drab.vercel.app
-> Sample: https://dev-portfolio-designer.vercel.app
-> Repo: https://github.com/umutyesildal/dev-portfolio
-
 ## Reddit
 
-**r/nextjs**
+No standalone r/nextjs post. Use the exact copy and rules in
+[`docs/HANDOFF.md`](HANDOFF.md). Summary:
 
-> I built a Next.js portfolio template where content is a single YAML file. The
-> part I have not seen much: an agent workflow that fills the YAML from a CV,
-> LinkedIn export, and GitHub, plus Markdown and JSON endpoints for agents.
-> Feedback on the content model or the agent workflow would be useful.
-
-**r/webdev**
-
-> Minimal personal-site template with a cream and lime editorial system. One YAML
-> file, no CMS. The agent workflow is optional, but it is the reason I built it.
-> I would like feedback on the type and spacing more than the features.
-
-**r/SideProject**
-
-> I wanted a portfolio my coding agent could update without touching React. It
-> became a template: sources in, one YAML out, a check that blocks placeholders,
-> and a 15s demo. First version is live.
+- r/webdev: Saturday only, `Showoff Saturday` flair, 25 karma and a 14-day
+  account, 9:1 rule.
+- r/nextjs: pinned Weekly Showoff Thread only. Rule 2 bans standalone project
+  posts.
+- r/SideProject: self-promotion allowed. Title format
+  `[dev-portfolio] - [Short description]`.
+- r/coolgithubprojects: GitHub-hosted projects only.
+- r/opensource: use the Promotional flair.
 
 ## Newsletters
 
@@ -185,8 +169,6 @@ Use UTM links for each channel:
 ```text
 ?utm_source=producthunt&utm_medium=launch
 ?utm_source=news_ycombinator&utm_medium=launch
-?utm_source=x&utm_medium=social
-?utm_source=linkedin&utm_medium=social
 ?utm_source=reddit&utm_medium=social
 ?utm_source=vercel_community&utm_medium=community
 ```
@@ -194,6 +176,7 @@ Use UTM links for each channel:
 ## Do not
 
 - Do not post the same body to every subreddit.
+- Do not post to LinkedIn or Twitter.
 - Do not lead with "AI". Lead with the one YAML file and the agent workflow.
 - Do not ask for stars. Ask for feedback.
 - Do not resubmit to Vercel Templates while the first submission is in review.
