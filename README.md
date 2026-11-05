@@ -4,7 +4,7 @@ A minimal Next.js portfolio template where one YAML file holds all portfolio
 content, and the React layer stays presentation-only.
 
 **Demo:** [dev-portfolio-delta-drab.vercel.app](https://dev-portfolio-delta-drab.vercel.app) ·
-**Live example:** [umut.yesildal.me](https://umut.yesildal.me) ·
+**Live example:** [yesildal.me](https://yesildal.me) ·
 **Repository:** [github.com/umutyesildal/dev-portfolio](https://github.com/umutyesildal/dev-portfolio)
 
 Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
