@@ -66,8 +66,6 @@ portfolio:
     title: Open source
   earlierProjects:
     title: Earlier work
-  contact:
-    socials: [GitHub, LinkedIn]
 
 contact:
   email: umut@yesildal.me

@@ -115,9 +115,6 @@ export const portfolioSchema = z
       }),
       openSource: sectionCopySchema,
       earlierProjects: sectionCopySchema,
-      contact: z.object({
-        socials: z.array(text),
-      }),
     }),
     contact: z.object({
       email: z.string().email(),
@@ -190,10 +187,6 @@ export const portfolioSchema = z
       {
         path: ["portfolio", "headerSocials"],
         names: data.portfolio.headerSocials,
-      },
-      {
-        path: ["portfolio", "contact", "socials"],
-        names: data.portfolio.contact.socials,
       },
     ];
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SocialIcon } from "@/components/social-icon";
 import { getPortfolioData } from "@/data/portfolio";
 
 function isExternal(url: string) {
@@ -11,16 +12,16 @@ export function SiteHeader({
   variant?: "home" | "portfolio";
 }) {
   const data = getPortfolioData();
-  const socials =
-    variant === "portfolio"
-      ? data.portfolio.headerSocials.flatMap((name) => {
-          const social = data.contact.socials.find((item) => item.name === name);
-          return social ? [social] : [];
-        })
-      : [];
+  const socialNames =
+    variant === "home"
+      ? data.home.featuredSocials
+      : data.portfolio.headerSocials;
+  const socials = socialNames.flatMap((name) => {
+    const social = data.contact.socials.find((item) => item.name === name);
+    return social ? [social] : [];
+  });
   const homeLabel =
     data.navigation.find((item) => item.href === "/")?.label ?? "Home";
-  const portfolio = data.navigation.find((item) => item.href === "/portfolio");
 
   return (
     <header className="flex items-center justify-between gap-5 border-b border-border/80 pb-4">
@@ -38,25 +39,18 @@ export function SiteHeader({
         )}
       </Link>
 
-      <nav aria-label="Site" className="flex items-center gap-4 sm:gap-6">
-        {variant === "home" && portfolio ? (
-          <Link
-            href={portfolio.href}
-            className="mono-label whitespace-nowrap text-foreground transition-colors hover:text-muted-foreground"
-          >
-            {portfolio.label} <span aria-hidden>↗</span>
-          </Link>
-        ) : null}
-
+      <nav aria-label="Social links" className="flex items-center gap-4 sm:gap-5">
         {socials.map((social) => (
           <Link
             key={social.name}
             href={social.url}
             target={isExternal(social.url) ? "_blank" : undefined}
             rel={isExternal(social.url) ? "noopener noreferrer" : undefined}
-            className="mono-label whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
+            aria-label={social.name}
+            title={social.name}
+            className="text-muted-foreground transition-colors hover:text-foreground"
           >
-            {social.name}
+            <SocialIcon name={social.name} className="size-4" />
           </Link>
         ))}
       </nav>

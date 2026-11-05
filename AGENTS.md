@@ -43,9 +43,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
   Quote numeric-looking years, for example `"2025"`.
 - Use unique names for social entries, work entries, and projects. A work entry is
   identified by the pair `company` + `title`.
-- Keep social names referenced by `home.featuredSocials`,
-  `portfolio.headerSocials`, and `portfolio.contact.socials` synchronized with
-  `contact.socials[].name`.
+- Keep social names referenced by `home.featuredSocials` and
+  `portfolio.headerSocials` synchronized with `contact.socials[].name`.
 - Use `work[].shortTitle` only as a shortened form of `work[].title` for the
   collapsed accordion row. It is optional and falls back to the full title. Do not
   use it to change the role.

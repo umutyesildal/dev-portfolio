@@ -134,7 +134,7 @@ These colors feed only `src/app/opengraph-image.tsx`. The website theme lives in
 | `home.eyebrow` | Yes | Role summary used as JSON-LD `jobTitle`. Not rendered on the page. |
 | `home.headline` | Yes | Main landing-page statement. |
 | `home.subheadline` | Yes | Supporting paragraph. |
-| `home.featuredSocials` | Yes | List of `contact.socials[].name` values to show on the home page. |
+| `home.featuredSocials` | Yes | List of `contact.socials[].name` values shown as icons in the home header. |
 | `home.portfolioCta.label` | Yes | Primary button label. |
 | `home.portfolioCta.href` | Yes | Primary button target, usually `/portfolio`. |
 | `notFound.code` | Yes | Large status text, such as `"404"`. |
@@ -164,16 +164,13 @@ Every name in `home.featuredSocials` must match a `contact.socials[].name`.
 | `portfolio.openSource.description` | No | Optional open-source section intro. |
 | `portfolio.earlierProjects.title` | Yes | Earlier-work section heading. |
 | `portfolio.earlierProjects.description` | No | Optional section intro. |
-| `portfolio.contact.title` | Yes | Contact section heading. |
-| `portfolio.contact.description` | No | Optional contact line. |
-| `portfolio.contact.socials` | Yes | List of `contact.socials[].name` values for the contact section. |
 
 ### `contact`
 
 | Key | Required | Description |
 | --- | --- | --- |
 | `contact.email` | Yes | Valid email address. |
-| `contact.socials[].name` | Yes | Unique display name, such as `GitHub` or `Email`. Referenced by the three social lists. |
+| `contact.socials[].name` | Yes | Unique display name, such as `GitHub` or `Email`. Referenced by the home and portfolio header lists. |
 | `contact.socials[].url` | Yes | Profile URL, `mailto:`, `tel:`, or root-relative path. |
 
 Names must be unique. Referenced names that do not exist fail validation.

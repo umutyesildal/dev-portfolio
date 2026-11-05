@@ -15,10 +15,6 @@ const enter = (delay: number) =>
 
 export default function HomePage() {
   const data = getPortfolioData();
-  const socials = data.home.featuredSocials.flatMap((name) => {
-    const social = data.contact.socials.find((item) => item.name === name);
-    return social ? [social] : [];
-  });
 
   return (
     <>
@@ -55,11 +51,7 @@ export default function HomePage() {
               {data.home.subheadline}
             </p>
 
-            <div
-              data-enter
-              style={enter(150)}
-              className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4"
-            >
+            <div data-enter style={enter(150)} className="mt-9">
               <Link
                 href={data.home.portfolioCta.href}
                 className="group inline-flex h-11 items-center gap-2 rounded-md bg-foreground px-5 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
@@ -70,32 +62,6 @@ export default function HomePage() {
                   className="size-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5"
                 />
               </Link>
-
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                {socials.map((social, index) => (
-                  <span key={social.name} className="flex items-center gap-3">
-                    {index > 0 ? (
-                      <span aria-hidden className="text-border">
-                        /
-                      </span>
-                    ) : null}
-                    <Link
-                      href={social.url}
-                      target={
-                        social.url.startsWith("http") ? "_blank" : undefined
-                      }
-                      rel={
-                        social.url.startsWith("http")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      className="mono-label text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
-                    >
-                      {social.name}
-                    </Link>
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
 

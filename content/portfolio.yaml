@@ -64,8 +64,6 @@ portfolio:
     title: Open source
   earlierProjects:
     title: Earlier work
-  contact:
-    socials: [GitHub, LinkedIn, Email]
 
 contact:
   email: hello@example.com
