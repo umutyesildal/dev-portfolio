@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { CompactList } from "@/components/compact-list";
 import { ProjectRow } from "@/components/project-row";
 import { SectionHeading } from "@/components/section-heading";
 import { getPortfolioData } from "@/data/portfolio";
@@ -25,85 +24,28 @@ export default function ProjectsSection() {
       </div>
 
       {data.openSource.length > 0 ? (
-        <div className="mt-10">
-          <h3 className="text-[18px] font-medium tracking-[-0.02em]">
-            {data.portfolio.openSource.title}
-          </h3>
-          {data.portfolio.openSource.description ? (
-            <p className="mt-1 max-w-[52ch] text-[13px] leading-relaxed text-muted-foreground">
-              {data.portfolio.openSource.description}
-            </p>
-          ) : null}
-          <div className="mt-4 border-t border-border/60">
-            {data.openSource.map((project) => (
-              <Link
-                key={project.title}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group grid gap-1 border-b border-border/60 py-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-8"
-              >
-                <div>
-                  <span className="flex items-baseline gap-2 text-[14px] font-medium">
-                    {project.title}
-                    <ArrowUpRight
-                      aria-hidden
-                      className="size-3 text-muted-foreground opacity-40 transition-opacity duration-150 sm:opacity-0 sm:group-hover:opacity-100"
-                    />
-                  </span>
-                  <p className="mt-0.5 text-[13px] leading-relaxed text-muted-foreground">
-                    {project.description}
-                  </p>
-                </div>
-                <span className="mono-label hidden tabular-nums text-muted-foreground sm:block">
-                  {project.date}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <CompactList
+          title={data.portfolio.openSource.title}
+          description={data.portfolio.openSource.description || undefined}
+          items={data.openSource.map((project) => ({
+            title: project.title,
+            meta: project.description,
+            url: project.url,
+            year: project.date,
+          }))}
+        />
       ) : null}
 
-      <details className="group mt-10 border-t border-border/80 pt-4">
-        <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
-          <h3 className="text-[18px] font-medium tracking-[-0.02em]">
-            {data.portfolio.earlierProjects.title}
-          </h3>
-          <ChevronDown
-            aria-hidden
-            className="size-3.5 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
-          />
-        </summary>
-
-        {data.portfolio.earlierProjects.description ? (
-          <p className="mt-1 max-w-[52ch] text-[13px] leading-relaxed text-muted-foreground">
-            {data.portfolio.earlierProjects.description}
-          </p>
-        ) : null}
-
-        <div className="mt-4 grid gap-x-12 sm:grid-cols-2">
-          {data.earlierProjects.map((project) => (
-            <Link
-              key={project.title}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-baseline justify-between gap-4 border-t border-border/60 py-3"
-            >
-              <span className="flex items-baseline gap-2 text-sm">
-                {project.title}
-                <ArrowUpRight
-                  aria-hidden
-                  className="size-3 text-muted-foreground opacity-40 transition-opacity duration-150 sm:opacity-0 sm:group-hover:opacity-100"
-                />
-              </span>
-              <span className="mono-label tabular-nums text-muted-foreground">
-                {yearOf(project.date)}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </details>
+      <CompactList
+        title={data.portfolio.earlierProjects.title}
+        description={data.portfolio.earlierProjects.description || undefined}
+        items={data.earlierProjects.map((project) => ({
+          title: project.title,
+          meta: project.technologies.join(" · "),
+          url: project.url,
+          year: yearOf(project.date),
+        }))}
+      />
     </section>
   );
 }
