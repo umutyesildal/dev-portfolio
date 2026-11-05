@@ -15,16 +15,19 @@ improves the content workflow or helps people find the template.
 - Security headers, `security.txt`, `SECURITY.md`, dependency audit in CI.
 - 15-second demo (`docs/demo.gif`, `docs/demo.mp4`).
 - Source completeness summary in `pnpm profile:check`.
+- Fictional designer profile at
+  [dev-portfolio-designer.vercel.app](https://dev-portfolio-designer.vercel.app).
+- `portfolio-builder` is installable with
+  `npx skills add umutyesildal/dev-portfolio`.
+- Showcase page with the personal site and the sample.
 
 ## Next
 
-1. **One fictional example profile.** A second `PORTFOLIO_CONTENT_FILE` example
-   with a different role than the personal site.
-2. **Vercel Templates submission.** High-intent, evergreen distribution.
-3. **Publish the skill.** List `portfolio-builder` on skills.sh and link it from
-   the README.
-4. **Showcase.** Collect the first 5-10 sites built with the template and add a
-   short gallery.
+1. **Vercel Templates submission.** The launch kit is in `docs/LAUNCH.md`; the
+   form is the remaining manual step.
+2. **Grow the showcase.** Collect the first 5-10 sites built with the template.
+3. **Real 15-second capture.** Replace the designed demo animation with a real
+   terminal and browser recording when available.
 
 ## Later
 

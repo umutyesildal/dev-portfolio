@@ -18,10 +18,14 @@ No voice. Cream background, ink text, mono captions, lime accent. 1280×720 or
 - Show the real commands, not a mock UI.
 - End on the site, not on a logo.
 
-## Recording
+## Current asset
 
-1. Start with a clean `sources/` folder.
-2. Record the terminal and the browser at the same scale.
-3. Cut every pause; the viewer only needs the command and the result.
-4. Export as MP4 for Product Hunt and X; export a 12 fps GIF for the README if
-   the file stays under 4 MB.
+The repository ships a designed animation:
+
+- `docs/demo.html` — source
+- `docs/demo.mp4` — 15 seconds, H.264
+- `docs/demo.gif` — 15 seconds, 960×540, under 1 MB
+
+It is intentionally a designed animation, not a real terminal capture. Replace
+it with a real recording when one is available; keep the same 15-second
+structure and the same captions.

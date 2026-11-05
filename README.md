@@ -5,9 +5,12 @@ Your coding agent can build that YAML from your CV, LinkedIn, and GitHub.
 
 **Demo:** [dev-portfolio-delta-drab.vercel.app](https://dev-portfolio-delta-drab.vercel.app) ·
 **Live example:** [yesildal.me](https://yesildal.me) ·
+**Sample:** [dev-portfolio-designer.vercel.app](https://dev-portfolio-designer.vercel.app) ·
 **Repository:** [github.com/umutyesildal/dev-portfolio](https://github.com/umutyesildal/dev-portfolio)
 
 Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
+
+[![skills.sh](https://skills.sh/b/umutyesildal/dev-portfolio)](https://skills.sh/umutyesildal/dev-portfolio)
 
 ![15-second demo](docs/demo.gif)
 
@@ -69,6 +72,16 @@ pnpm build
 assets, and `example.com` links. LinkedIn blocks direct scraping; use the
 official PDF export or a saved HTML copy.
 
+### Use it as an agent skill
+
+If your agent supports skills.sh:
+
+```bash
+npx skills add umutyesildal/dev-portfolio
+```
+
+This installs `portfolio-builder`, which knows this repository's source workflow.
+
 ## Scripts
 
 | Command | What it does |
@@ -103,6 +116,10 @@ Every field is documented in [docs/REFERENCE.md](docs/REFERENCE.md).
 - [Content workflow](content/README.md) — the short editing guide.
 - [Portfolio builder skill](skills/portfolio-builder/SKILL.md) — portable agent
   skill for the source workflow.
+- [Showcase](docs/SHOWCASE.md) — the personal site and a fictional designer
+  profile.
+- [Launch kit](docs/LAUNCH.md) — Vercel Templates, Product Hunt, Show HN, and X
+  copy.
 - [15-second demo storyboard](docs/demo.md).
 - [Roadmap](docs/ROADMAP.md) — what is shipped and what comes next.
 - [Security policy](SECURITY.md).
