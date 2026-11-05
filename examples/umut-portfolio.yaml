@@ -3,7 +3,7 @@ site:
   initials: UY
   language: en
   locale: en_US
-  url: https://umut.yesildal.me
+  url: https://yesildal.me
   repository: https://github.com/umutyesildal/dev-portfolio
   location: Berlin, Germany
   locationUrl: https://www.google.com/maps/place/Berlin
@@ -14,7 +14,7 @@ socialPreview:
   title: Umut Yunus Yesildal
   description: Software engineer building automation systems, data pipelines, and applied AI research.
   eyebrow: Software Engineer · Automation · Data & AI
-  footer: umut.yesildal.me
+  footer: yesildal.me
   imageAlt: Social preview for Umut Yunus Yesildal's portfolio
   avatar: /examples/umut-portrait.jpg
   colors:
