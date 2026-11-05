@@ -11,6 +11,7 @@ Your coding agent can build that YAML from your CV, LinkedIn, and GitHub.
 Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
 
 [![skills.sh](https://skills.sh/b/umutyesildal/dev-portfolio)](https://skills.sh/umutyesildal/dev-portfolio)
+[![Release](https://img.shields.io/github/v/release/umutyesildal/dev-portfolio)](https://github.com/umutyesildal/dev-portfolio/releases)
 
 ![15-second demo](docs/demo.gif)
 
@@ -108,20 +109,21 @@ Every field is documented in [docs/REFERENCE.md](docs/REFERENCE.md).
 
 ## Docs
 
-- [Reference](docs/REFERENCE.md) — YAML fields, theme tokens, multiple profiles,
+- [Reference](docs/REFERENCE.md): YAML fields, theme tokens, multiple profiles,
   project structure.
-- [Agent workflow](docs/AGENT-WORKFLOW.md) — prompts for Claude Code, Codex,
+- [Agent workflow](docs/AGENT-WORKFLOW.md): prompts for Claude Code, Codex,
   Cursor, and OpenCode.
-- [AGENTS.md](AGENTS.md) — canonical agent instructions.
-- [Content workflow](content/README.md) — the short editing guide.
-- [Portfolio builder skill](skills/portfolio-builder/SKILL.md) — portable agent
+- [AGENTS.md](AGENTS.md): canonical agent instructions.
+- [Content workflow](content/README.md): the short editing guide.
+- [Portfolio builder skill](skills/portfolio-builder/SKILL.md): portable agent
   skill for the source workflow.
-- [Showcase](docs/SHOWCASE.md) — the personal site and a fictional designer
+- [Showcase](docs/SHOWCASE.md): the personal site and a fictional designer
   profile.
-- [Launch kit](docs/LAUNCH.md) — Vercel Templates, Product Hunt, Show HN, and X
+- [Launch kit](docs/LAUNCH.md): Vercel Templates, Product Hunt, Show HN, and X
   copy.
+- [Changelog](CHANGELOG.md).
 - [15-second demo storyboard](docs/demo.md).
-- [Roadmap](docs/ROADMAP.md) — what is shipped and what comes next.
+- [Roadmap](docs/ROADMAP.md): what is shipped and what comes next.
 - [Security policy](SECURITY.md).
 
 ## Deploy

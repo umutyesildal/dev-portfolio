@@ -21,10 +21,15 @@ improves the content workflow or helps people find the template.
   `npx skills add umutyesildal/dev-portfolio`.
 - Showcase page with the personal site and the sample.
 
+## In progress
+
+- Vercel Templates review. Submitted on 2026-11-05; the launch kit is in
+  `docs/LAUNCH.md`.
+
 ## Next
 
-1. **Vercel Templates submission.** The launch kit is in `docs/LAUNCH.md`; the
-   form is the remaining manual step.
+1. **Launch day execution.** Product Hunt, Show HN, Reddit, newsletters, and the
+   Vercel Community Showcase post.
 2. **Grow the showcase.** Collect the first 5-10 sites built with the template.
 3. **Real 15-second capture.** Replace the designed demo animation with a real
    terminal and browser recording when available.
