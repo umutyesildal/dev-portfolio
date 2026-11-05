@@ -19,6 +19,9 @@ Submit at <https://vercel.com/templates/submit>.
 | License | MIT |
 | Environment | None required. `PORTFOLIO_CONTENT_FILE` is optional for multiple profiles. |
 
+Thumbnail: `docs/template-thumbnail.png` — 1600×630, 2.54:1, 163 KB.
+Source: `docs/template-thumbnail.html` (rendered at 1600×900, cropped to 630).
+
 Screenshots:
 
 - https://raw.githubusercontent.com/umutyesildal/dev-portfolio/main/docs/home.png
