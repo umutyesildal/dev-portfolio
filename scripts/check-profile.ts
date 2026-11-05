@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { loadContent } from "./lib/content";
 
 const result = loadContent();
@@ -87,3 +89,22 @@ console.log(
   `- ${result.data.projects.length} projects, ${result.data.openSource.length} open-source entries, ${result.data.earlierProjects.length} earlier projects`
 );
 console.log(`- ${result.data.contact.socials.length} social links`);
+
+const sourceGroups = [
+  { label: "CV", files: ["cv.pdf", "cv.docx", "cv.txt"] },
+  { label: "LinkedIn", files: ["linkedin.pdf", "linkedin.html"] },
+  { label: "GitHub", files: ["github.json"] },
+  { label: "Notes", files: ["notes.md"] },
+];
+const sourceDir = path.join(process.cwd(), "sources");
+const sources = sourceGroups.map((group) => ({
+  label: group.label,
+  file: group.files.find((file) => existsSync(path.join(sourceDir, file))),
+}));
+
+if (sources.some((source) => source.file)) {
+  console.log("Sources:");
+  for (const source of sources) {
+    console.log(`- ${source.label}: ${source.file ?? "missing"}`);
+  }
+}

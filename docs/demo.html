@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dev-portfolio · 15s demo</title>
+    <style>
+      :root {
+        --cream: #faf8ef;
+        --paper: #fdfcf7;
+        --ink: #212214;
+        --muted: #59594a;
+        --border: #e2ddce;
+        --lime: #b9e06c;
+        --green: #3f6b2e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+          Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        width: 1280px;
+        height: 720px;
+        padding: 42px 80px 56px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 14px;
+        font-family: "SF Mono", ui-monospace, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .topbar strong {
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .stage {
+        position: relative;
+        flex: 1;
+        margin-top: 28px;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 320ms cubic-bezier(0.16, 1, 0.3, 1),
+          transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+      }
+
+      .scene.active {
+        opacity: 1;
+        transform: none;
+      }
+
+      .kicker {
+        margin: 0 0 10px;
+        font-family: "SF Mono", ui-monospace, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        font-weight: 500;
+        max-width: 780px;
+      }
+
+      .caption {
+        margin: 14px 0 0;
+        font-size: 17px;
+        color: var(--muted);
+      }
+
+      .sources {
+        margin-top: 30px;
+        padding: 26px 28px;
+        border: 1px dashed #c9c3b2;
+        border-radius: 12px;
+        background: rgba(253, 252, 247, 0.6);
+        width: 760px;
+      }
+
+      .folder {
+        font-family: "SF Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      .files {
+        display: flex;
+        gap: 12px;
+      }
+
+      .file {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--paper);
+        font-family: "SF Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+      }
+
+      .file span {
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .terminal {
+        margin-top: 28px;
+        width: 860px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--paper);
+        box-shadow: 0 18px 40px -32px rgba(33, 34, 20, 0.45);
+        overflow: hidden;
+      }
+
+      .terminal-head {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--border);
+      }
+
+      .terminal-body {
+        padding: 20px 22px 22px;
+        font-family: "SF Mono", ui-monospace, Menlo, monospace;
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      .prompt {
+        color: var(--muted);
+      }
+
+      .ok {
+        color: var(--green);
+      }
+
+      .accent {
+        display: inline-block;
+        border-bottom: 2px solid var(--lime);
+        padding-bottom: 1px;
+      }
+
+      .yaml {
+        color: var(--ink);
+      }
+
+      .yaml .key {
+        color: var(--muted);
+      }
+
+      .browser {
+        width: 780px;
+        margin: 22px auto 0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--paper);
+        overflow: hidden;
+        box-shadow: 0 24px 60px -40px rgba(33, 34, 20, 0.5);
+      }
+
+      .browser-head {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .browser-url {
+        margin-left: 8px;
+        font-family: "SF Mono", ui-monospace, Menlo, monospace;
+        font-size: 10px;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+      }
+
+      .browser img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .progress {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        bottom: 28px;
+        height: 2px;
+        background: var(--border);
+      }
+
+      .progress span {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--lime);
+        animation: progress 15s linear forwards;
+      }
+
+      @keyframes progress {
+        to {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="topbar">
+        <span><strong>dev-portfolio</strong> · 15s demo</span>
+        <span>sources → yaml → site</span>
+      </div>
+
+      <div class="stage">
+        <section class="scene active" data-scene="0">
+          <p class="kicker">01 · Sources</p>
+          <h1>Start with what you already have.</h1>
+          <p class="caption">Your CV, LinkedIn export, and public GitHub.</p>
+          <div class="sources">
+            <div class="folder">sources/</div>
+            <div class="files">
+              <div class="file">cv.pdf <span>Experience, education</span></div>
+              <div class="file">linkedin.pdf <span>Roles, dates, skills</span></div>
+              <div class="file">github.json <span>Public repositories</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scene" data-scene="1">
+          <p class="kicker">02 · GitHub</p>
+          <h1>Your public work, imported.</h1>
+          <div class="terminal">
+            <div class="terminal-head">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="prompt">$</span> pnpm profile:github umutyesildal</div>
+              <div class="ok">→ sources/github.json</div>
+              <div class="prompt">25 repos · 14 active non-forks</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scene" data-scene="2">
+          <p class="kicker">03 · Agent</p>
+          <h1>One YAML file.</h1>
+          <div class="terminal">
+            <div class="terminal-head">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="prompt">›</span> Build my portfolio from sources/</div>
+              <div class="yaml"><span class="key">name:</span> Umut Yunus Yesildal</div>
+              <div class="yaml"><span class="key">role:</span> <span class="accent">Product Operations</span></div>
+              <div class="yaml"><span class="key">projects:</span> 6 selected</div>
+              <div class="yaml"><span class="key">theme:</span> warm editorial</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scene" data-scene="3">
+          <p class="kicker">04 · Check</p>
+          <h1>Validated before it ships.</h1>
+          <div class="terminal">
+            <div class="terminal-head">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="prompt">$</span> pnpm profile:check</div>
+              <div class="ok">✓ schema</div>
+              <div class="ok">✓ assets</div>
+              <div class="ok">✓ no placeholders</div>
+              <div><strong>Profile OK</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scene" data-scene="4">
+          <p class="kicker">05 · Site</p>
+          <h1>A minimal personal site.</h1>
+          <div class="browser">
+            <div class="browser-head">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="browser-url">yesildal.me/portfolio</span>
+            </div>
+            <img src="portfolio.png" alt="Portfolio preview" />
+          </div>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+    </div>
+
+    <script>
+      const scenes = Array.from(document.querySelectorAll(".scene"));
+      const timings = [0, 2500, 5500, 9500, 12000];
+
+      function show(index) {
+        scenes.forEach((scene, i) => {
+          scene.classList.toggle("active", i === index);
+        });
+      }
+
+      timings.forEach((time, index) => {
+        window.setTimeout(() => show(index), time);
+      });
+    </script>
+  </body>
+</html>
