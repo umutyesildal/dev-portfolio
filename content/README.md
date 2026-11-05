@@ -3,6 +3,10 @@
 `portfolio.yaml` is the single source of truth for the site. The React layer only
 reads it; every visible string, date, link, and project comes from this file.
 
+To build it from a CV, LinkedIn export, and GitHub data, start with
+[`../sources/README.md`](../sources/README.md) and
+[`../skills/portfolio-builder/SKILL.md`](../skills/portfolio-builder/SKILL.md).
+
 An alternate profile can be selected at build time with
 `PORTFOLIO_CONTENT_FILE=examples/umut-portfolio.yaml`.
 
@@ -11,7 +15,8 @@ An alternate profile can be selected at build time with
 1. Read `AGENTS.md` and `src/data/schema.ts`.
 2. Edit `content/portfolio.yaml`.
 3. Put images under `public/` and reference them as `/file.ext`.
-4. Run `pnpm content:check`.
+4. Run `pnpm profile:check` for your own profile, or `pnpm content:check` for
+   the template demo.
 5. Run `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
 
 ## Machine-readable outputs

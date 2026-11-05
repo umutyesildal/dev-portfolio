@@ -6,6 +6,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 ## Source of truth
 
 - All user-editable portfolio content lives in `content/portfolio.yaml`.
+- `sources/` holds the raw input (CV, LinkedIn export, GitHub data). It is
+  git-ignored and must never be committed.
 - `content/README.md` is the short content workflow; this file is the canonical
   agent guide.
 - Content shape and required fields are defined in `src/data/schema.ts`.
@@ -33,6 +35,20 @@ The site generates these from the YAML at build time:
 - `/agents.json`
 
 Never edit generated output by hand. Edit `content/portfolio.yaml`, then rebuild.
+
+## Profile build from sources
+
+The preferred workflow is source-first:
+
+1. Put `cv.pdf`, `linkedin.pdf` or `linkedin.html`, and `notes.md` in `sources/`.
+2. Run `pnpm profile:github <github-username>` to write `sources/github.json`.
+3. Read `sources/README.md` and `skills/portfolio-builder/SKILL.md`.
+4. Write `content/portfolio.yaml` from evidence only.
+5. Run `pnpm profile:check`, `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
+
+`sources/` is git-ignored. Do not commit CVs, LinkedIn exports, or generated
+GitHub data. `profile:check` fails on placeholders, missing assets, and
+`example.com` links; `content:check` only validates the schema and assets.
 
 ## CV-to-portfolio workflow
 
@@ -88,6 +104,8 @@ Never edit generated output by hand. Edit `content/portfolio.yaml`, then rebuild
 pnpm install
 pnpm dev
 pnpm content:check
+pnpm profile:github <github-username>
+pnpm profile:check
 pnpm lint
 pnpm typecheck
 pnpm build
@@ -105,6 +123,7 @@ pnpm audit
 ## Definition of done
 
 - `content/portfolio.yaml` contains the requested content and passes Zod validation.
+- `pnpm profile:check` passes for personal content.
 - `pnpm lint` has no errors.
 - `pnpm typecheck` passes.
 - `pnpm build` succeeds.
