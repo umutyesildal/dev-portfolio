@@ -32,6 +32,16 @@ Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Zod · MIT
 - One codebase, multiple profiles through `PORTFOLIO_CONTENT_FILE`.
 - shadcn/ui new-york primitives (Accordion, Button, Badge) and lucide icons.
 
+## Agentic by default
+
+- `/llms.txt` and `/llms-full.txt` give agents a compact and a full Markdown map.
+- `/index.md` and `/portfolio.md` are Markdown versions of both routes.
+- `/api/portfolio.json` exposes the validated content as JSON.
+- `/api/schema.json` exposes the Zod schema as JSON Schema.
+- `/agents.json` describes the content source, schema, endpoints, and update command.
+- `AGENTS.md` and `content/README.md` define the edit protocol.
+- `pnpm content:check` validates the YAML, references, and local assets.
+
 ## Screenshots
 
 | Home | Portfolio |
@@ -62,12 +72,16 @@ Open [http://localhost:3000](http://localhost:3000).
    `robots.txt`, and JSON-LD all read from it.
 4. Update `socialPreview` for link previews. Its `colors` affect only the
    generated Open Graph image, not the site theme.
-5. Validate before deploying:
+5. Update `public/.well-known/security.txt` and `SECURITY.md` with your security
+   contact and production URLs.
+6. Validate before deploying:
 
 ```bash
+pnpm content:check
 pnpm lint
 pnpm typecheck
 pnpm build
+pnpm audit
 ```
 
 ### Customize with an AI coding agent
@@ -99,6 +113,7 @@ or a root-relative path. Asset paths must start with `/` and cannot contain `..`
 | `site.language` | Yes | Language tag for `<html lang>`, such as `en`. |
 | `site.locale` | Yes | Open Graph locale, such as `en_US`. |
 | `site.url` | Yes | Absolute production URL. Drives canonical URLs, sitemap, robots, and JSON-LD. |
+| `site.repository` | No | Public repository URL, used by `/agents.json` for source and instruction links. |
 | `site.location` | Yes | Human-readable location, shown in the footer. |
 | `site.locationUrl` | Yes | Map or location link used in the footer. |
 | `site.description` | Yes | Default meta description and JSON-LD description. |
@@ -297,10 +312,12 @@ portrait are personal and are **not** MIT licensed. See
 
 ```text
 content/portfolio.yaml          Demo content, replace this
+content/README.md               Content workflow for humans and agents
 examples/
   umut-portfolio.yaml           Full example profile (not MIT)
   LICENSE                       Terms for the example content
 public/
+  .well-known/security.txt      Vulnerability reporting contact
   portrait-placeholder.svg      Default portrait
   examples/                     Example portrait assets
 src/
@@ -309,6 +326,13 @@ src/
     page.tsx                    Home route
     portfolio/page.tsx          Portfolio route
     opengraph-image.tsx         Generated 1200×630 social card
+    llms.txt/route.ts           Agent-readable site map
+    llms-full.txt/route.ts      Full Markdown content
+    index.md/route.ts           Home as Markdown
+    portfolio.md/route.ts       Portfolio as Markdown
+    api/portfolio.json/route.ts Validated content as JSON
+    api/schema.json/route.ts    JSON Schema for the YAML
+    agents.json/route.ts        Agent manifest
     sitemap.ts                  /sitemap.xml
     robots.ts                   /robots.txt
     globals.css                 Tailwind 4 theme and tokens
@@ -319,8 +343,13 @@ src/
   data/
     schema.ts                   Zod content schema
     portfolio.ts                YAML loader and validation
-  lib/utils.ts
+  lib/
+    content-markdown.ts         Markdown and llms.txt builders
+    utils.ts
+scripts/
+  check-content.ts              YAML and asset checker
 AGENTS.md                       Instructions for coding agents
+SECURITY.md                     Vulnerability reporting policy
 THIRD_PARTY_NOTICES.md          Upstream licenses
 ```
 
@@ -336,8 +365,9 @@ THIRD_PARTY_NOTICES.md          Upstream licenses
 - Per-page Open Graph and X metadata, plus a generated 1200×630 image.
 - JSON-LD `Person` with `sameAs`, the first work entry as employer, and education.
 - `sitemap.xml` and `robots.txt` generated from the same YAML.
-- Security headers: `nosniff`, `DENY` framing, strict-origin referrer policy, and
-  a restrictive permissions policy.
+- Security headers: HSTS, CSP in production, `nosniff`, `DENY` framing, a strict
+  referrer policy, and a restrictive permissions policy.
+- `/.well-known/security.txt` and `SECURITY.md` document the reporting process.
 
 Set `site.url` before deploying. Canonical URLs, the sitemap, and structured data
 all depend on it.
