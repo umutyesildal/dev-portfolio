@@ -54,6 +54,7 @@ export const portfolioSchema = z
       language: text,
       locale: text,
       url: z.string().url(),
+      repository: optionalUrl,
       location: text,
       locationUrl: urlText,
       description: text,

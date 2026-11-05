@@ -20,6 +20,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm typecheck
+      - run: pnpm content:check
+      - run: pnpm audit --prod --audit-level high
       - name: Build default template
         run: pnpm build
       - name: Build example profile

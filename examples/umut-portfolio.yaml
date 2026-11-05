@@ -4,6 +4,7 @@ site:
   language: en
   locale: en_US
   url: https://umut.yesildal.me
+  repository: https://github.com/umutyesildal/dev-portfolio
   location: Berlin, Germany
   locationUrl: https://www.google.com/maps/place/Berlin
   description: Software engineer building automation systems, data pipelines, and applied AI research from Berlin.

@@ -6,6 +6,8 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 ## Source of truth
 
 - All user-editable portfolio content lives in `content/portfolio.yaml`.
+- `content/README.md` is the short content workflow; this file is the canonical
+  agent guide.
 - Content shape and required fields are defined in `src/data/schema.ts`.
 - Images and downloadable files belong in `public/`; reference them from YAML with
   root-relative paths such as `/portrait.jpg`.
@@ -18,6 +20,19 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 - React components under `src/` are the presentation layer. Do not edit them for a
   content-only customization unless the requested layout cannot be represented by
   the existing schema.
+- `site.repository` should point at the public repository. It feeds the source and
+  instructions links in `/agents.json`.
+
+## Machine-readable outputs
+
+The site generates these from the YAML at build time:
+
+- `/llms.txt` and `/llms-full.txt`
+- `/index.md` and `/portfolio.md`
+- `/api/portfolio.json` and `/api/schema.json`
+- `/agents.json`
+
+Never edit generated output by hand. Edit `content/portfolio.yaml`, then rebuild.
 
 ## CV-to-portfolio workflow
 
@@ -57,6 +72,9 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 - `openSource` is a separate list for current open-source repositories. It renders
   only when non-empty; do not duplicate entries that already appear in `projects`.
 - Keep project links public and safe to expose.
+- When publishing under a new owner or domain, update
+  `public/.well-known/security.txt` and `SECURITY.md` with the real contact and
+  production URLs.
 - Do not place secrets, private repository URLs, API keys, phone numbers, or private
   addresses in the template unless the user explicitly requests publication.
 - Treat the checked-in identity, copy, and portrait as demo content. Replace them;
@@ -69,10 +87,20 @@ to customize the site from a CV, resume, LinkedIn export, or a short personal br
 ```bash
 pnpm install
 pnpm dev
+pnpm content:check
 pnpm lint
 pnpm typecheck
 pnpm build
+pnpm audit
 ```
+
+## Content update protocol
+
+1. Read `content/portfolio.yaml` and `src/data/schema.ts` before editing.
+2. Edit only the YAML and assets under `public/`.
+3. Run `pnpm content:check` and fix every reported path.
+4. Run `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
+5. Do not edit generated markdown or JSON endpoints; they are derived from YAML.
 
 ## Definition of done
 
