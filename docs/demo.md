@@ -22,9 +22,9 @@ No voice. Cream background, ink text, mono captions, lime accent. 1280×720 or
 
 The repository ships a designed animation:
 
-- `docs/demo.html` — source
-- `docs/demo.mp4` — 15 seconds, H.264
-- `docs/demo.gif` — 15 seconds, 960×540, under 1 MB
+- `docs/demo.html`: source
+- `docs/demo.mp4`: 15 seconds, H.264
+- `docs/demo.gif`: 15 seconds, 960×540, under 1 MB
 
 It is intentionally a designed animation, not a real terminal capture. Replace
 it with a real recording when one is available; keep the same 15-second

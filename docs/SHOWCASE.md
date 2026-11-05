@@ -5,7 +5,7 @@ person using it.
 
 ## Personal site
 
-**[yesildal.me](https://yesildal.me)** — Product Operations at Trade Republic.
+**[yesildal.me](https://yesildal.me)**: Product Operations at Trade Republic.
 Automation, data pipelines, and applied AI.
 
 ![yesildal.me](portfolio.png)
